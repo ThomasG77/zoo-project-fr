@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZOO.Format.GeoJSON &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="ZOO.Format.GML" href="zoo-format-gml.html" />
+    <link rel="prev" title="ZOO.Format" href="zoo-format.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo-format-gml.html" title="ZOO.Format.GML"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="zoo-format.html" title="ZOO.Format"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >Documentation de l&#8217;API de ZOO</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zoo-format-geojson">
+<span id="api-zoo-format-geojson"></span><h1>ZOO.Format.GeoJSON<a class="headerlink" href="#zoo-format-geojson" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Read and write GeoJSON.</p>
+<p>Inherits from</p>
+<ul class="simple">
+<li><a class="reference internal" href="zoo-format-json.html#api-zoo-format-json"><em>ZOO.Format.JSON</em></a></li>
+</ul>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#id1"><em>ZOO.Format.GeoJSON</em></a></td>
+<td>Create a new parser for GeoJSON.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-format-wps.html#read"><em>read</em></a></td>
+<td>Deserialize a GeoJSON string.</td>
+</tr>
+<tr><td><a class="reference internal" href="#isvalidtype"><em>isValidType</em></a></td>
+<td>Check if a GeoJSON object is a valid representative of the given type.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-format-kml.html#parsefeature"><em>parseFeature</em></a></td>
+<td>Convert a feature object from GeoJSON into an ZOO.Feature.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-format-kml.html#parsegeometry"><em>parseGeometry</em></a></td>
+<td>Convert a geometry object from GeoJSON into an ZOO.Geometry.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parsecoords-properties">
+<h2>parseCoords Properties<a class="headerlink" href="#parsecoords-properties" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#parsecoords"><em>parseCoords</em></a></td>
+<td>Object with properties corresponding to the GeoJSON geometry types.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parsecoords-functions">
+<h2>parseCoords Functions<a class="headerlink" href="#parsecoords-functions" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#parsecoords-point"><em>parseCoords.point</em></a></td>
+<td>Convert a coordinate array from GeoJSON into an ZOO.Geometry.Point.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsecoords-multipoint"><em>parseCoords.multipoint</em></a></td>
+<td>Convert a coordinate array from GeoJSON into an ZOO.Geometry.MultiPoint.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsecoords-linestring"><em>parseCoords.linestring</em></a></td>
+<td>Convert a coordinate array from GeoJSON into an ZOO.Geometry.LineString.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsecoords-multilinestring"><em>parseCoords.multilinestring</em></a></td>
+<td>Convert a coordinate array from GeoJSON into an ZOO.Geometry.MultiLineString.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsecoords-polygon"><em>parseCoords.polygon</em></a></td>
+<td>Convert a coordinate array from GeoJSON into an ZOO.Geometry.Polygon.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsecoords-multipolygon"><em>parseCoords.multipolygon</em></a></td>
+<td>Convert a coordinate array from GeoJSON into an ZOO.Geometry.MultiPolygon.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsecoords-box"><em>parseCoords.box</em></a></td>
+<td>Convert a coordinate array from GeoJSON into an ZOO.Geometry.Polygon.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-format-wkt.html#write"><em>write</em></a></td>
+<td>Serialize a feature, geometry, array of features into a GeoJSON string.</td>
+</tr>
+<tr><td><a class="reference internal" href="#createcrsobject"><em>createCRSObject</em></a></td>
+<td>Create the CRS object for an object.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="extract-properties">
+<h2>extract Properties<a class="headerlink" href="#extract-properties" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="zoo-format-wkt.html#extract"><em>extract</em></a></td>
+<td>Object with properties corresponding to the GeoJSON types.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="extract-functions">
+<h2>extract Functions<a class="headerlink" href="#extract-functions" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#extract-feature"><em>extract.feature</em></a></td>
+<td>Return a partial GeoJSON object representing a single feature.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-geometry"><em>extract.geometry</em></a></td>
+<td>Return a GeoJSON object representing a single geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-point"><em>extract.point</em></a></td>
+<td>Return an array of coordinates from a point.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-multipoint"><em>extract.multipoint</em></a></td>
+<td>Return an array of coordinates from a multipoint.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-linestring"><em>extract.linestring</em></a></td>
+<td>Return an array of coordinate arrays from a linestring.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-multilinestring"><em>extract.multilinestring</em></a></td>
+<td>Return an array of linestring arrays from a linestring.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-polygon"><em>extract.polygon</em></a></td>
+<td>Return an array of linear ring arrays from a polygon.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-multipolygon"><em>extract.multipolygon</em></a></td>
+<td>Return an array of polygon arrays from a multipolygon.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract-collection"><em>extract.collection</em></a></td>
+<td>Return an array of geometries from a geometry collection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions</strong></p>
+<dl class="docutils" id="id1">
+<dt>ZOO.Format.GeoJSON</dt>
+<dd><p class="first">Create a new parser for GeoJSON.</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> An optional object whose properties will be set on this instance.</p>
+</dd>
+</dl>
+<dl class="docutils" id="read">
+<dt>read</dt>
+<dd><div class="first highlight-python"><pre>read: function(json,type,filter)</pre>
+</div>
+<p>Deserialize a GeoJSON string.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">json</span> <span class="pre">{String}</span></tt> A GeoJSON string</div>
+<div class="line"><tt class="docutils literal"><span class="pre">type</span> <span class="pre">{String}</span></tt> Optional string that determines the structure of the output.  Supported values are &#8220;Geometry&#8221;, &#8220;Feature&#8221;, and &#8220;FeatureCollection&#8221;.  If absent or null, a default of &#8220;FeatureCollection&#8221; is assumed.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">filter</span> <span class="pre">{Function}</span></tt> A function which will be called for every key and value at every level of the final result.  Each value will be replaced by the result of the filter function.  This can be used to reform generic objects into instances of classes, or to transform date strings into Date objects.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Object}</span></tt> The return depends on the value of the type argument.  If type is &#8220;FeatureCollection&#8221; (the default),
+the return will be an array of <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>ZOO.Feature</em></a>.  If type is &#8220;Geometry&#8221;, the input json must
+represent a single geometry, and the return will be an <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>ZOO.Geometry</em></a>.  If type
+is &#8220;Feature&#8221;, the input json must represent a single feature, and the return will be an <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>ZOO.Feature</em></a>.</p>
+</dd>
+</dl>
+<dl class="docutils" id="isvalidtype">
+<dt>isValidType</dt>
+<dd><div class="first highlight-python"><pre>isValidType: function(obj,type)</pre>
+</div>
+<p>Check if a GeoJSON object is a valid representative of the given type.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> The object is valid GeoJSON object of the given type.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsefeature">
+<dt>parseFeature</dt>
+<dd><div class="first highlight-python"><pre>parseFeature: function(obj)</pre>
+</div>
+<p>Convert a feature object from GeoJSON into a <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>ZOO.Feature</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">obj</span> <span class="pre">{Object}</span></tt> An object created from a GeoJSON object</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A feature.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsegeometry">
+<dt>parseGeometry</dt>
+<dd><div class="first highlight-python"><pre>parseGeometry: function(obj)</pre>
+</div>
+<p>Convert a geometry object from GeoJSON into a <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>ZOO.Geometry</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">obj</span> <span class="pre">{Object}</span></tt> An object created from a GeoJSON object</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a> A geometry.</p>
+</dd>
+</dl>
+<p><strong>parseCoords Properties</strong></p>
+<dl class="docutils" id="parsecoords">
+<dt>parseCoords</dt>
+<dd>Object with properties corresponding to the GeoJSON geometry types. Property
+values are functions that do the actual parsing.</dd>
+</dl>
+<p><strong>parseCoords Functions</strong></p>
+<dl class="docutils" id="parsecoords-point">
+<dt>parseCoords.point</dt>
+<dd><p class="first">Convert a coordinate array from GeoJSON into a <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>ZOO.Geometry.Point</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">array</span> <span class="pre">{Object}</span></tt> The coordinates array from the GeoJSON fragment.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> A geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsecoords-multipoint">
+<dt>parseCoords.multipoint</dt>
+<dd><p class="first">Convert a coordinate array from GeoJSON into a <a class="reference internal" href="zoo-geometry-multipoint.html#api-zoo-geometry-multipoint"><em>ZOO.Geometry.MultiPoint</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">array</span> <span class="pre">{Object}</span></tt> The coordinates array from the GeoJSON fragment.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-multipoint.html#api-zoo-geometry-multipoint"><em>{ZOO.Geometry.MultiPoint}</em></a> A geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsecoords-linestring">
+<dt>parseCoords.linestring</dt>
+<dd><p class="first">Convert a coordinate array from GeoJSON into a <a class="reference internal" href="zoo-geometry-linestring.html#api-zoo-geometry-linestring"><em>ZOO.Geometry.LineString</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">array</span> <span class="pre">{Object}</span></tt> The coordinates array from the GeoJSON fragment.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-linestring.html#api-zoo-geometry-linestring"><em>{ZOO.Geometry.LineString}</em></a> A geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsecoords-multilinestring">
+<dt>parseCoords.multilinestring</dt>
+<dd><p class="first">Convert a coordinate array from GeoJSON into a <a class="reference internal" href="zoo-geometry-multilinestring.html#api-zoo-geometry-multilinestring"><em>ZOO.Geometry.MultiLineString</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">array</span> <span class="pre">{Object}</span></tt> The coordinates array from the GeoJSON fragment.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-multilinestring.html#api-zoo-geometry-multilinestring"><em>{ZOO.Geometry.MultiLineString}</em></a> A geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsecoords-polygon">
+<dt>parseCoords.polygon</dt>
+<dd><p class="first">Convert a coordinate array from GeoJSON into a <a class="reference internal" href="zoo-geometry-polygon.html#api-zoo-geometry-polygon"><em>ZOO.Geometry.Polygon</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">array</span> <span class="pre">{Object}</span></tt> The coordinates array from the GeoJSON fragment.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-polygon.html#api-zoo-geometry-polygon"><em>{ZOO.Geometry.Polygon}</em></a> A geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsecoords-multipolygon">
+<dt>parseCoords.multipolygon</dt>
+<dd><p class="first">Convert a coordinate array from GeoJSON into a <a class="reference internal" href="zoo-geometry-multipolygon.html#api-zoo-geometry-multipolygon"><em>ZOO.Geometry.MultiPolygon</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">array</span> <span class="pre">{Object}</span></tt> The coordinates array from the GeoJSON fragment.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-multipolygon.html#api-zoo-geometry-multipolygon"><em>{ZOO.Geometry.MultiPolygon}</em></a> A geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsecoords-box">
+<dt>parseCoords.box</dt>
+<dd><p class="first">Convert a coordinate array from GeoJSON into a <a class="reference internal" href="zoo-geometry-polygon.html#api-zoo-geometry-polygon"><em>ZOO.Geometry.Polygon</em></a>.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">array</span> <span class="pre">{Object}</span></tt> The coordinates array from the GeoJSON fragment.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-polygon.html#api-zoo-geometry-polygon"><em>{ZOO.Geometry.Polygon}</em></a> A geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="write">
+<dt>write</dt>
+<dd><div class="first highlight-python"><pre>write: function(obj,pretty)</pre>
+</div>
+<p>Serialize a feature, geometry, array of features into a GeoJSON string.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">obj</span> <span class="pre">{Object}</span></tt> A <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a>, <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a>, or an array of features.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">pretty</span> <span class="pre">{Boolean}</span></tt> Structure the output with newlines and indentation.  Default is false.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{String}</span></tt> The GeoJSON string representation of the input geometry, features, or array of features.</p>
+</dd>
+</dl>
+<dl class="docutils" id="createcrsobject">
+<dt>createCRSObject</dt>
+<dd><div class="first highlight-python"><pre>createCRSObject: function(object)</pre>
+</div>
+<p>Create the CRS object for an object.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">object</span></tt> <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Object}</span></tt> An object which can be assigned to the crs property of a GeoJSON object.</p>
+</dd>
+</dl>
+<p><strong>extract Properties</strong></p>
+<dl class="docutils" id="extract">
+<dt>extract</dt>
+<dd>Object with properties corresponding to the GeoJSON types. Property values are
+functions that do the actual value extraction.</dd>
+</dl>
+<p><strong>extract Functions</strong></p>
+<dl class="docutils" id="extract-feature">
+<dt>extract.feature</dt>
+<dd><p class="first">Return a partial GeoJSON object representing a single feature.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">feature</span></tt> <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Object}</span></tt> An object representing the point.</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-geometry">
+<dt>extract.geometry</dt>
+<dd><p class="first">Return a GeoJSON object representing a single geometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Object}</span></tt> An object representing the geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-point">
+<dt>extract.point</dt>
+<dd><p class="first">Return an array of coordinates from a point.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">point</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of coordinates representing the point.</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-multipoint">
+<dt>extract.multipoint</dt>
+<dd><p class="first">Return an array of coordinates from a multipoint.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">multipoint</span></tt> <a class="reference internal" href="zoo-geometry-multipoint.html#api-zoo-geometry-multipoint"><em>{ZOO.Geometry.MultiPoint}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of point coordinate arrays representing the multipoint.</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-linestring">
+<dt>extract.linestring</dt>
+<dd><p class="first">Return an array of coordinate arrays from a linestring.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">linestring</span></tt> <a class="reference internal" href="zoo-geometry-linestring.html#api-zoo-geometry-linestring"><em>{ZOO.Geometry.LineString}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of coordinate arrays representing the linestring.</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-multilinestring">
+<dt>extract.multilinestring</dt>
+<dd><p class="first">Return an array of linestring arrays from a linestring.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">multilinestring</span></tt> <a class="reference internal" href="zoo-geometry-multilinestring.html#api-zoo-geometry-multilinestring"><em>{ZOO.Geometry.MultiLineString}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of linestring arrays representing the multilinestring.</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-polygon">
+<dt>extract.polygon</dt>
+<dd><p class="first">Return an array of linear ring arrays from a polygon.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">polygon</span></tt> <a class="reference internal" href="zoo-geometry-polygon.html#api-zoo-geometry-polygon"><em>{ZOO.Geometry.Polygon}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of linear ring arrays representing the polygon.</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-multipolygon">
+<dt>extract.multipolygon</dt>
+<dd><p class="first">Return an array of polygon arrays from a multipolygon.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">multipolygon</span></tt> <a class="reference internal" href="zoo-geometry-multipolygon.html#api-zoo-geometry-multipolygon"><em>{ZOO.Geometry.MultiPolygon}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of polygon arrays representing the multipolygon</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract-collection">
+<dt>extract.collection</dt>
+<dd><p class="first">Return an array of geometries from a geometry collection.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">collection</span></tt> <a class="reference internal" href="zoo-geometry-collection.html#api-zoo-geometry-collection"><em>{ZOO.Geometry.Collection}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of geometry objects representing the geometry collection.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table des matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Documentation du noyau (kernel) de ZOO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation de l&#8217;API de ZOO</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="classes.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Guide pour le développement de la documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

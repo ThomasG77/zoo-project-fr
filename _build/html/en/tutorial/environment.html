@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using ZOO from an OSGeoLive virtual machine &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="using-zoo-from-an-osgeolive-virtual-machine">
+<span id="environment"></span><h1>Using ZOO from an OSGeoLive virtual machine<a class="headerlink" href="#using-zoo-from-an-osgeolive-virtual-machine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="development-environment-description">
+<h2>Development Environment Description<a class="headerlink" href="#development-environment-description" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://live.osgeo.org/">OSGeoLive</a> is a live DVD and virtual machine based on
+<a class="reference external" href="http://www.xubuntu.org/">Xubuntu</a>  that allows you to try a
+wide variety of open source geospatial software without installing anything. It is
+composed entirely of free software and include ZOO 1.0 this year, for testing purpose.</p>
+<p>As already said in introduction, an OSGeoLive virtual machine image disk has been
+installed on your computer, allowing you to use ZOO Kernel in a development environment
+directly. Using a virtual machine image disk seems to be the simplest way to use
+ZOO Kernel and to develop ZOO Services locally, as we can ensure that everything
+requested for compile C Services and run Python Services is available and ready to use.
+Every ZOO related material and source code have been placed in <em>/home/user/zoows</em> directory.
+We will work inside it during this workshop. As the binary version of ZOO Kernel is
+already compiled and stored in <em>/home/user/zoows/sources/zoo-kernel</em>, you only have to
+copy two important files inside the <em>/usr/lib/cgi-bin directory</em>: <em>zoo_loader.cgi</em>
+and the <em>main.cfg</em> in order to make ZOO Kernel available, using the following commands:</p>
+<div class="highlight-python"><pre>sudo cp ~/zoows/sources/zoo-kernel/zoo_loader.cgi /usr/lib/cgi-bin
+sudo cp ~/zoows/sources/zoo-kernel/main.cfg /usr/lib/cgi-bin</pre>
+</div>
+<p>Please note that we will talk about ZOO Kernel or zoo_loader.cgi script without any
+distinction during this workshop.</p>
+<p>The <em>main.cfg</em> file contains metadata informations about the identification and provider
+but also some important settings. The file is composed of various sections, namely <em>main</em>,
+<em>identification</em> and <em>provider</em> per default. Obviously, you are free to add new sections
+to the files if you need them for a specific Service. Nevertheless, you have to know
+that the env section name is used in a specific way. It lets you define environment
+variables that your Service requires during its runtime. For instance, if your Service
+requires to access to a X server running on framebuffer, you can add <em>DISPLAY=:1</em> line in
+your env section to take this specificity into account.</p>
+<p>Please have a look to this file. Three important parameters are commented below:</p>
+<dl class="docutils">
+<dt>serverAddress</dt>
+<dd>The url to access to the ZOO Kernel</dd>
+<dt>tmpPath</dt>
+<dd>The full path to store temporary files</dd>
+<dt>tmpUrl</dt>
+<dd>The url path relative to serverAddress to access temporary directory.</dd>
+</dl>
+<p>The values of the <em>main.cfg</em> file used from the running virtual machine are the following:</p>
+<div class="highlight-python"><pre>serverAddress=http://localhost/zoo
+tmpPath=/var/www/temp
+tmpUrl=../temp/</pre>
+</div>
+<p>You could have noticed that the <em>tmpUrl</em> is a relative url from <em>serverAddress</em>, so it must
+be a directory. Even if ZOO Kernel can be used with the full url of the zoo_loader.cgi
+script, for  better readability and fully functional ZOO Kernel, you have to modify the
+default Apache configuration in order to be able to use the <a class="reference external" href="http://localhost/zoo/">http://localhost/zoo/</a> url
+directly.</p>
+<p>First, please create a zoo directory in the existing <em>/var/www</em> which is used by Apache as
+the DirectoryIndex. Then, please edit the <em>/etc/apache2/sites-available/default</em> configuration
+file and add the following lines after the Directory block related to <em>/var/www</em> directory :</p>
+<div class="highlight-python"><pre>&lt;Directory /var/www/zoo/&gt;
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+&lt;/Directory&gt;</pre>
+</div>
+<p>Now create a small <em>.htaccess</em> file in the <em>/var/www/zoo</em> containing the following lines:</p>
+<div class="highlight-python"><pre>RewriteEngine on
+RewriteRule (.*)/(.*) /cgi-bin/zoo_loader.cgi?metapath=$1 [L,QSA]
+RewriteRule (.*) /cgi-bin/zoo_loader.cgi [L,QSA]</pre>
+</div>
+<p>For this last file to be taken into account by Apache, you must activate the rewrite
+Apache module by copying a load file as bellow :</p>
+<div class="highlight-python"><pre>sudo cp /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/</pre>
+</div>
+<p>Now you should be able to access the ZOO Kernel using a simplified by restarting
+your Apache Web server :</p>
+<div class="highlight-python"><pre>sudo /etc/init.d/apache2 restart</pre>
+</div>
+<p>Two other softwares form the OSGeoLive environment will be used during this workshop.
+Geoserver will first be used to provide WFS input data for the ZOO Services we are going
+to develop. The Geoserver sample dataset (United States polygons) will be passed to our
+service during section 3. So please start the Geoserver using the corresponding launcher
+in the Servers folder, as illustrated in the following screenshot :</p>
+<p>OpenLayers library is also available on the OSGeoLive virtual machine image disk, and it
+will be used during section 4, for building a simple WPS client application able to query
+the newly developed ZOO Services.</p>
+<p>As we planned to use OGR C-API and Python module of the GDAL library, we will need the
+corresponding header files, libraries and associated files. Hopefully everything was
+already available per default and so ready to use on the OSGeoLive packaging.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">ZOO Kernel Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">ZOO API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation Development Guide</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,48 @@
+.. _kernel-introduction:
+
+Introduction
+============
+
+Le noyau de ZOO est le coeur de ZOO. C'est un noyau performant en C fonctionnant côté serveur qui permet
+de gérer et chaîner des services Web, en chargeant des bibliothèques dynamiques et en les gérant
+comme des services Web à la demande. Le noyau de ZOO est écrit dans le langage C, mais supporte
+différents langages de programmation courants dans le but de se connecter à de nombreux modèles et bibliothèques.
+
+Utiliser le noyau de ZOO comme une plateforme de traitement en ligne
+--------------------------------------------------------------------
+
+Le noyau de ZOO travaille avec Apache et peut communiquer avec les moteurs de rendu cartographiques et les 
+clients de cartographie en ligne. Il ajoute simplement le support du WPS à votre infrastructure de données
+spatiale et à votre application de cartographie en ligne!
+
+.. note::
+   Si vous voulez en savoir plus sur le standard WPS, allez sur: http://www.opengeospatial.org/standards/wps
+
+Langages supportés
+------------------
+
+Le noyau de ZOO supporte les langages de programmation suivants, et vous laisse les utiliser pour créer 
+des nouveaux services ZOO depuis un code nouveau ou existant:
+
+=========== ========================== =========================== ============
+**Langage** **Fournisseur de service** **Structure de données**    **Renvoie**
+----------- -------------------------- --------------------------- ------------
+C / C++     Shared Library             maps* M 	                   integer
+Fortran     Shared Library             CHARACTER*(1024) M(10,30)   integer
+Java 	    Class File                 `HashMap`_ 	               integer
+Python 	    Module File 	           `dictionary`_ 	           integer
+PHP 	    Script File 	           `Array`_ 	               integer
+Perl 	    Script File 		                                   integer
+JavaScript  Script file 	           `Object`_ or Array	       Array/Object
+=========== ========================== =========================== ============
+
+.. _`HashMap`: http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
+.. _`dictionary`: http://docs.python.org/tutorial/datastructures.html#dictionaries
+.. _`Array`: http://php.net/manual/language.types.array.php
+.. _`Object`: http://www.json.org/
+
+Le noyau de ZOO est une machine à Expresso pour le WPS
+------------------------------------------------------
+
+.. image:: ../../_static/images/zoo_kernel_scheme.png
+

@@ -1,0 +1,19 @@
+.. _kernel-installation:
+
+Installation
+============
+
+This page provides documentation on how to compile then install the ZOO Kernel on Unix, Windows, and Mac OS X platforms.
+
+.. toctree::
+   :maxdepth: 2
+   
+   install-prerequisites
+   install-unix
+   install-opensuse
+   install-centos
+   install-debian
+   install-windows
+   install-mac
+
+

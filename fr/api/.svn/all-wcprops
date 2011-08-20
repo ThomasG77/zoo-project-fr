@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/205/trunk/docs/api
+END
+zoo-geometry-multipoint.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/194/trunk/docs/api/zoo-geometry-multipoint.txt
+END
+zoo-format-wps.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/192/trunk/docs/api/zoo-format-wps.txt
+END
+zoo-format-json.txt
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/192/trunk/docs/api/zoo-format-json.txt
+END
+index.txt
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/140/trunk/docs/api/index.txt
+END
+zoo.txt
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/171/trunk/docs/api/zoo.txt
+END
+zoo-format-gml.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/192/trunk/docs/api/zoo-format-gml.txt
+END
+zoo-string.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/179/trunk/docs/api/zoo-string.txt
+END
+zoo-geometry-linestring.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/196/trunk/docs/api/zoo-geometry-linestring.txt
+END
+zoo-format-kml.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/192/trunk/docs/api/zoo-format-kml.txt
+END
+examples.txt
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/204/trunk/docs/api/examples.txt
+END
+zoo-projection.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/177/trunk/docs/api/zoo-projection.txt
+END
+zoo-geometry-curve.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/195/trunk/docs/api/zoo-geometry-curve.txt
+END
+description.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/205/trunk/docs/api/description.txt
+END
+zoo-process.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/201/trunk/docs/api/zoo-process.txt
+END
+zoo-geometry-polygon.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/199/trunk/docs/api/zoo-geometry-polygon.txt
+END
+zoo-geometry-surface.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/193/trunk/docs/api/zoo-geometry-surface.txt
+END
+zoo-geometry-multilinestring.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/198/trunk/docs/api/zoo-geometry-multilinestring.txt
+END
+zoo-geometry-point.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/192/trunk/docs/api/zoo-geometry-point.txt
+END
+zoo-geometry-linearring.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/197/trunk/docs/api/zoo-geometry-linearring.txt
+END
+zoo-geometry-collection.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/192/trunk/docs/api/zoo-geometry-collection.txt
+END
+zoo-format.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/173/trunk/docs/api/zoo-format.txt
+END
+classes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/201/trunk/docs/api/classes.txt
+END
+zoo-request.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/180/trunk/docs/api/zoo-request.txt
+END
+zoo-format-geojson.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/192/trunk/docs/api/zoo-format-geojson.txt
+END
+zoo-bounds.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/171/trunk/docs/api/zoo-bounds.txt
+END
+zoo-format-wkt.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/192/trunk/docs/api/zoo-format-wkt.txt
+END
+zoo-feature.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/186/trunk/docs/api/zoo-feature.txt
+END
+zoo-geometry-multipolygon.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/200/trunk/docs/api/zoo-geometry-multipolygon.txt
+END
+zoo-geometry.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/187/trunk/docs/api/zoo-geometry.txt
+END

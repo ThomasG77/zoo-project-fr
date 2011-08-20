@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Debian / Ubuntu &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Installation" href="installation.html" />
+    <link rel="next" title="Windows" href="install-windows.html" />
+    <link rel="prev" title="CentOS" href="install-centos.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install-windows.html" title="Windows"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install-centos.html" title="CentOS"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >ZOO Kernel Documentation</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="debian-ubuntu">
+<span id="kernel-installation-debian"></span><h1><a class="toc-backref" href="#table-of-contents">Debian / Ubuntu</a><a class="headerlink" href="#debian-ubuntu" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#debian-ubuntu" id="id1">Debian / Ubuntu</a><ul>
+<li><a class="reference internal" href="#installation-workflow" id="id2">Installation Workflow</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An Ubuntu 10.4 with ZOO virtual image is available at <a class="reference external" href="http://www.zoo-project.org/Ubuntu10.4_ZOO.zip">http://www.zoo-project.org/Ubuntu10.4_ZOO.zip</a>
+(root: ZOO.test)</p>
+</div>
+<p>The following instructions were tested on Debian Squeeze, Ubuntu 10.04 and Ubuntu 10.10</p>
+<div class="section" id="installation-workflow">
+<h2><a class="toc-backref" href="#table-of-contents">Installation Workflow</a><a class="headerlink" href="#installation-workflow" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>install some dependencies</li>
+</ul>
+<div class="highlight-python"><pre>sudo apt-get install flex bison libfcgi-dev libxml2 libxml2-dev curl openssl autoconf checkinstall</pre>
+</div>
+<ul class="simple">
+<li>download ZOO  source</li>
+</ul>
+<div class="highlight-python"><pre>svn checkout http://svn.zoo-project.org/svn/trunk zoo-project</pre>
+</div>
+<ul class="simple">
+<li>install cgic from packages</li>
+</ul>
+<div class="highlight-python"><pre>cd zoo-project/thirds/cgic206/</pre>
+</div>
+<ul class="simple">
+<li>change the path of installation</li>
+</ul>
+<div class="highlight-python"><pre>nano Makefile
+  - LIBS=-L./ -lcgic ../fcgi-2.4.0/libfcgi/.libs/libfcgi.a --&gt; LIBS=/path/to/libfcgi.a
+  - cp libcgic.a  ../../dist/lib --&gt; cp libcgic.a /usr/lib
+  - cp cgic.h  ../../dist//include --&gt; cp cgic.h  /usr/include
+  - @echo libcgic.a is in  ../../dist/lib and cgic.h is in  ../../dist//include. --&gt; @echo libcgic.a is in  /usr/lib and cgic.h is in /usr/include.</pre>
+</div>
+<ul class="simple">
+<li>compile</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">make</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>install</li>
+</ul>
+<div class="highlight-python"><pre>sudo make install</pre>
+</div>
+<ul class="simple">
+<li>go to kernel path</li>
+</ul>
+<div class="highlight-python"><pre>cd ../../zoo-kernel/</pre>
+</div>
+<ul class="simple">
+<li>create configure file</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">autoconf</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>run configure</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Ubuntu 10.04 libmozjs-dev does not exist, so to use JS you can compile <a class="reference external" href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a> or use the xulrunner-dev package
+which includes SpiderMonkey.
+For PHP, you must make sure to compile PHP with <a class="reference external" href="http://www.zoo-project.org/trac/wiki/ZooKernel/Embed/PHP#ConfigureandInstallPHPEmbedlibrary">&#8211;enable-embed</a>.</p>
+</div>
+<div class="highlight-python"><pre>./configure --with-java=/path/to/java
+
+to JavaScript with XulRunner SpiderMonkey you have to edit configure file.
+  - JS_CPPFLAGS="-I$JSHOME/include/js" --&gt; JS_CPPFLAGS="-I$JSHOME/include"
+  - JS_LDFLAGS="-L$JSHOME/lib -ljs -lm" --&gt; JS_LDFLAGS="-L$JSHOME/lib -lmozjs -lm"
+  - JS_LIB="js" --&gt; JS_LIB="mozjs"
+
+./configure --with-js=/usr/lib/xulrunner-devel.1.9.2.n</pre>
+</div>
+<ul class="simple">
+<li>compile</li>
+</ul>
+<div class="highlight-python"><pre>make zoo_loader.cgi</pre>
+</div>
+<ul class="simple">
+<li>copy necessary files into your cgi-bin</li>
+</ul>
+<div class="highlight-python"><pre>sudo cp main.cfg /usr/lib/cgi-bin
+sudo cp zoo_loader.cgi /usr/lib/cgi-bin</pre>
+</div>
+<ul class="simple">
+<li>Install ZOO ServiceProvider</li>
+</ul>
+<div class="highlight-python"><pre>sudo cp ../zoo-services/hello-py/cgi-env/*.zcfg /usr/lib/cgi-bin
+sudo cp ../zoo-services/hello-py/*.py /usr/lib/cgi-bin/</pre>
+</div>
+<ul class="simple">
+<li>change some paths in the main.cfg</li>
+</ul>
+<div class="highlight-python"><pre>sudo nano /usr/lib/cgi-bin/main.cfg
+  - serverAddress = http://127.0.0.1
+  - providerSite = http://127.0.0.1</pre>
+</div>
+<ul class="simple">
+<li>try the installation<ul>
+<li><a class="reference external" href="http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=GetCapabilities&amp;Version=1.0.0">http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=GetCapabilities&amp;Version=1.0.0</a></li>
+<li><a class="reference external" href="http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=DescribeProcess&amp;Version=1.0.0&amp;Identifier=HelloPy">http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=DescribeProcess&amp;Version=1.0.0&amp;Identifier=HelloPy</a></li>
+<li><a class="reference external" href="http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=Execute&amp;Version=1.0.0&amp;Identifier=HelloPy&amp;DataInputs=a=myname">http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=Execute&amp;Version=1.0.0&amp;Identifier=HelloPy&amp;DataInputs=a=myname</a></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you have some problem in the execute request, add the following to <tt class="docutils literal"><span class="pre">main.cfg</span></tt>:</p>
+<div class="last highlight-python"><pre>[env]
+PYTHONPATH=&lt;YOUR_PYTHONPATH&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ZOO Kernel Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="installation.html">Installation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install-prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-unix.html">Unix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-opensuse.html">OpenSUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-centos.html">CentOS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Debian / Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-windows.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-mac.html">Mac OS X</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">ZOO API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation Development Guide</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

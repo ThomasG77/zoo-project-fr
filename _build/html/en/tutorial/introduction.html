@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<span id="tutorialintro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-zoo">
+<h2>What is ZOO?<a class="headerlink" href="#what-is-zoo" title="Permalink to this headline">¶</a></h2>
+<p>ZOO is a WPS (Web Processing Service) open source project recently released under a MIT/X-11
+style license. It provides an OGC WPS compliant developer-friendly framework to create and
+chain WPS Web services. ZOO is made of three parts:</p>
+<dl class="docutils">
+<dt>ZOO Kernel</dt>
+<dd>A powerful server-side C Kernel which makes it possible to manage and chain Web services
+coded in different programming languages.</dd>
+<dt>ZOO Services</dt>
+<dd>A growing suite of example Web Services based on various open source libraries.</dd>
+<dt>ZOO API</dt>
+<dd>A server-side JavaScript API able to call and chain the ZOO Services, which makes the
+development and chaining processes easier.</dd>
+</dl>
+<p>ZOO is designed to make the WPS server-side development easier by providing a powerful system
+able to understand and execute WPS compliant queries. It supports several programming languages,
+thus allowing you to create Web Services in your favorite language and from existing code.
+Further information on the project is available on the
+<a class="reference external" href="http://www.zoo-project.org/">ZOO Project official website</a>.</p>
+</div>
+<div class="section" id="how-does-zoo-work">
+<h2>How does ZOO work?<a class="headerlink" href="#how-does-zoo-work" title="Permalink to this headline">¶</a></h2>
+<p>ZOO is based on a &#8216;WPS Service Kernel&#8217; which constitutes the ZOO&#8217;s core system (aka ZOO Kernel).
+The latter is able to load dynamic libraries and to handle them as on-demand Web services.
+The ZOO Kernel is written in C language, but supports several common programming languages
+for creating ZOO Services.</p>
+<p>A <a class="reference internal" href="../services/index.html#services"><em>ZOO Service</em></a> is a link composed of a ZOO metadata file (.zcfg) and the code
+for the corresponding implementation. The metadata file describes all the available functions
+which can be called using a WPS Exec Request, as well as the desired input/output. Services
+contain the algorithms and functions, and can now be implemented in C/C++, Fortran, Java,
+Python, PHP and JavaScript.</p>
+<p><a class="reference internal" href="../kernel/index.html#kernel"><em>ZOO Kernel</em></a> works with Apache and can communicate with cartographic engines
+and Web mapping clients. It simply adds the WPS support to your spatial data infrastructure
+and your Web mapping application. It can use every GDAL/OGR supported formats as input data
+and create suitable vector or raster output for your cartographic engine and/or your
+web-mapping client application.</p>
+</div>
+<div class="section" id="what-are-we-going-to-do-in-this-workshop">
+<h2>What are we going to do in this workshop?<a class="headerlink" href="#what-are-we-going-to-do-in-this-workshop" title="Permalink to this headline">¶</a></h2>
+<p>This workshop aims to present the ZOO Project and its features, and to explain its capabilities
+regarding the WPS 1.0.0 specification. The participants will learn in 3 hours how to use ZOO
+Kernel, how to create ZOO Services  and their configuration files and finally how to link
+the created Service with a client-side webmapping application.</p>
+<p>A pre-compiled ZOO 1.0 version is provided inside OSGeoLive, the OSGeo official Live DVD.
+For the sack of simplicity, an OSGeoLive Virtual Machine image disk is already installed
+on your computers. This will be used during this workshop, so the participants won&#8217;t have
+to compile and install ZOO Kernel manually. Running and testing ZOO Kernel from this
+OSGeoLive image disk is thus the first step of the workshop, and every participants should
+get a working ZOO Kernel in less than 30 minutes.</p>
+<p>Once ZOO Kernel will be tested from a Web browser using GetCapabilities requests,
+participants will be invited to create an OGR based ZOO Service Provider aiming to enable
+simple spatial operations on vector data. Participants will first have to choose whether
+they will create the service using C or Python language. Every programming step of the ZOO
+Service Provider and the related Services will be each time detailed in C and Python.</p>
+<p>Once the ZOO Services will be ready and callable by ZOO Kernel, participants will finally
+learn how to use its different functions from an OpenLayers simple application. A sample
+dataset from Geoserver will be displayed on a simple map using WMS/WFS standards and used as
+input data by the ZOO Services. Then, some specific selection and execution controls will be
+added in the JavaScript code in order to execute single and multiple geometries on the displayed
+polygons.</p>
+<p>Once again, the whole procedure will be organized step-by-step and detailed with numerous code
+snippets and their respective explanations. The instructors will check the ZOO Kernel functioning
+on each machine and will assist you while coding. Technical questions are of course welcome
+during the workshop.</p>
+</div>
+<div class="section" id="usefull-tips-for-reading">
+<h2>Usefull tips for reading<a class="headerlink" href="#usefull-tips-for-reading" title="Permalink to this headline">¶</a></h2>
+<p>Codes snipets are included in yellow blocks</p>
+<p>Code changes are included in grey blocks</p>
+<p>Code snipets included in sentences are displayed this way</p>
+<p>HTTP and XML Requests are included in blue blocks</p>
+<p><em>Let&#8217;s go !</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">ZOO Kernel Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">ZOO API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation Development Guide</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

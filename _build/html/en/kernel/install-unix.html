@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Unix &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Installation" href="installation.html" />
+    <link rel="next" title="OpenSUSE" href="install-opensuse.html" />
+    <link rel="prev" title="Prerequisites" href="install-prerequisites.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install-opensuse.html" title="OpenSUSE"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install-prerequisites.html" title="Prerequisites"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >ZOO Kernel Documentation</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="unix">
+<span id="kernel-installation-unix"></span><h1><a class="toc-backref" href="#table-of-contents">Unix</a><a class="headerlink" href="#unix" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#unix" id="id1">Unix</a><ul>
+<li><a class="reference internal" href="#for-the-impatient" id="id2">For the impatient</a></li>
+<li><a class="reference internal" href="#configure-options" id="id3">Configure Options</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You must be sure to perform the <a class="reference internal" href="install-prerequisites.html#kernel-installation-prereq"><em>prerequisite steps</em></a> before following this page.</p>
+</div>
+<div class="section" id="for-the-impatient">
+<h2><a class="toc-backref" href="#table-of-contents">For the impatient</a><a class="headerlink" href="#for-the-impatient" title="Permalink to this headline">¶</a></h2>
+<p>To build the <tt class="docutils literal"><span class="pre">zoo_loader.cgi</span></tt> CGI program with the default options, cd to the directory
+where you extracted the ZOO Kernel source code package and use the following commands:</p>
+<div class="highlight-python"><pre>$ cd zoo-kernel
+$ autoconf
+$ ./configure
+$ make</pre>
+</div>
+<p>Unless something went wrong, you should have executables in the current directory for the <tt class="docutils literal"><span class="pre">zoo_loader.cgi</span></tt>
+CGI program. You can copy the <tt class="docutils literal"><span class="pre">zoo_loader.cgi</span></tt> program and the <tt class="docutils literal"><span class="pre">main.cfg</span></tt> file to your HTTP server&#8217;s CGI
+directory and start using it.</p>
+<p>At this step your ZOO-Kernel should work. Nevertheless, don&#8217;t forget to correct the main.cfg settings
+to set <tt class="docutils literal"><span class="pre">tmpPath</span></tt> and <tt class="docutils literal"><span class="pre">tmpUrl</span></tt> to fit your web server configuration.</p>
+</div>
+<div class="section" id="configure-options">
+<h2><a class="toc-backref" href="#table-of-contents">Configure Options</a><a class="headerlink" href="#configure-options" title="Permalink to this headline">¶</a></h2>
+<p>Here is the list of available options as returned by <em>./configure &#8211;help</em>:</p>
+<div class="highlight-python"><pre>--with-gdal-config=FILE specify an alternative gdal-config file
+--with-xml2config=FILE  specify an alternative xml2-config file
+--with-python=PATH      To enable python support or specify an alternative
+                        directory for python installation, disabled by
+                        default
+--with-php=PATH         To enable php support or specify an alternative
+                        directory for php installation, disabled by default
+--with-perl=PATH        To enable perl support or specify an alternative
+                        directory for perl installation, disabled by default
+--with-java=PATH        To enable java support, specify a JDK_HOME,
+                        disabled by default
+--with-js=PATH          specify --with-js=path-to-js to enable js support,
+                        specify --with-js on linux debian like, js support
+                        is disabled by default</pre>
+</div>
+<p>All the options are described in more details below.</p>
+<div class="section" id="required-gdal-support">
+<h3>(Required) GDAL Support<a class="headerlink" href="#required-gdal-support" title="Permalink to this headline">¶</a></h3>
+<p>If your gdal-config program is not found in your PATH then you can use the
+<tt class="docutils literal"><span class="pre">--with-gdal-config</span></tt> option to specify its location. For instance, let&#8217;s suppose that your gdal-config
+was installed in /usr/local/bin and this directory is not in your PATH, then you can use
+the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-gdal-config=/usr/local/bin/gdal-config</pre>
+</div>
+</div>
+<div class="section" id="required-xml2-support">
+<h3>(Required) XML2 Support<a class="headerlink" href="#required-xml2-support" title="Permalink to this headline">¶</a></h3>
+<p>If your xml2-config program is not found in your PATH then you can use the
+<tt class="docutils literal"><span class="pre">--with-xml2config</span></tt> option to specify its location. For instance, let&#8217;s suppose that
+your xml2-config was installed in /usr/local/bin and this directory is not in your PATH,
+then you can use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-xml2config=/usr/local/bin/xml2-config</pre>
+</div>
+</div>
+<div class="section" id="optional-python-support">
+<h3>(Optional) Python Support<a class="headerlink" href="#optional-python-support" title="Permalink to this headline">¶</a></h3>
+<p>If you want to activate Python support for the ZOO Kernel then you will have to use the
+<tt class="docutils literal"><span class="pre">--with-python</span></tt> option. If your python-config program is found in your PATH then you
+don&#8217;t have to specify the path where Python was installed, such as:</p>
+<div class="highlight-python"><pre>$ ./configure --with-python</pre>
+</div>
+<p>This assumes that python-config is found in your PATH.</p>
+<p>In the case that your python-config is not found in your PATH, then you can specify the Python
+installation directory you are using. For instance, let&#8217;s suppose that you installed
+Python in /usr/local, then you can use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-python=/usr/local</pre>
+</div>
+<p>This assumes that /usr/local/bin/python-config exists.</p>
+</div>
+<div class="section" id="optional-php-support">
+<h3>(Optional) PHP Support<a class="headerlink" href="#optional-php-support" title="Permalink to this headline">¶</a></h3>
+<p>To be able to activate PHP support for the ZOO Kernel you&#8217;ll need to get a local PHP Embedded
+installation; for more information about the required configure options when compiling PHP you
+can refer to this page :</p>
+<blockquote>
+<div><a class="reference external" href="http://zoo-project.org/trac/wiki/ZooKernel/Embed/PHP">http://zoo-project.org/trac/wiki/ZooKernel/Embed/PHP</a></div></blockquote>
+<p>If you want to activate the PHP support for the ZOO Kernel then you will have to use the
+<tt class="docutils literal"><span class="pre">--with-php</span></tt> option. If your php-config program is found in your PATH then you don&#8217;t have
+to specify the path where PHP was installed, then you can use the following commnd:</p>
+<div class="highlight-python"><pre>$ ./configure --with-php</pre>
+</div>
+<p>This assumes that php-config is found in your PATH.</p>
+<p>In the case that your php-config is not found in your PATH, then you can specify the PHP installation
+directory you are using. For instance, let&#8217;s suppose that you installed PHP in /usr/local,
+then you can use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-php=/usr/local</pre>
+</div>
+<p>This assumes that /usr/local/bin/php-config exists.</p>
+</div>
+<div class="section" id="optional-perl-support">
+<h3>(Optional) Perl Support<a class="headerlink" href="#optional-perl-support" title="Permalink to this headline">¶</a></h3>
+<p>If you want to activate Perl support for the ZOO Kernel then you will have to use the
+<tt class="docutils literal"><span class="pre">--with-perl</span></tt> option. If you do not set any value to this option, then the perl program will
+be searched in your PATH. So in such a case, you can use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-perl</pre>
+</div>
+<p>This assumes that perl is found in your PATH.</p>
+<p>In the other case, for custom Perl installations, you can set the installation directory. For instance,
+let&#8217;s suppose that you installed Perl in /usr/local and /usr/local/bin is not in your PATH,
+then you can use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-perl=/usr/local</pre>
+</div>
+<p>This assumes that /usr/local/bin/perl exists.</p>
+</div>
+<div class="section" id="optional-java-support">
+<h3>(Optional) Java Support<a class="headerlink" href="#optional-java-support" title="Permalink to this headline">¶</a></h3>
+<p>If you want to activate Java support for the ZOO Kernel then you will have to use the
+<tt class="docutils literal"><span class="pre">--with-java</span></tt> option and set the installation path of your Java SDK. For instance,
+let&#8217;s suppose that your Java SDK was installed in the /usr/lib/jvm/java-6-sun-1.6.0.22/ directory,
+then you can use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-java=/usr/lib/jvm/java-6-sun-1.6.0.22/</pre>
+</div>
+<p>This assumes that the include/linux and jre/lib/i386/client/ subdirectories exist in
+/usr/lib/jvm/java-6-sun-1.6.0.22/, include/linux contains the jni.h headers file and
+jre/lib/i386/client/ contains the libjvm.so file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>With Mac OS X you only have to set <tt class="docutils literal"><span class="pre">macos</span></tt> as the value for the <tt class="docutils literal"><span class="pre">--with-java</span></tt> option
+to activate Java support. For example:</p>
+<div class="last highlight-python"><pre>$ ./configure --with-java=macos</pre>
+</div>
+</div>
+</div>
+<div class="section" id="optional-javascript-support">
+<h3>(Optional) JavaScript Support<a class="headerlink" href="#optional-javascript-support" title="Permalink to this headline">¶</a></h3>
+<p>If you want to activate JavaScript support for the ZOO Kernel then you will have to use
+the <tt class="docutils literal"><span class="pre">--with-js</span></tt> option. If you are using a &#8220;Debian-like&#8221; GNU/Linux distribution then
+dpkg will be used to detect if the required packages are installed and you don&#8217;t have to
+specify anything here, so you can use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-js</pre>
+</div>
+<p>This assumes that js_api.h and libmozjs.so are found in default directories.</p>
+<p>If you have a custom installation of SpiderMonkey or you are not using a Debian packaging
+system, then you&#8217;ll have to specify the directory where you installed it. For
+instance, let&#8217;s suppose that you installed your SpiderMonkey in /usr, then you&#8217;ll
+have to use the following command:</p>
+<div class="highlight-python"><pre>$ ./configure --with-js=/usr</pre>
+</div>
+<p>This assumes that the /usr/include/js exists and contains the js_api.h headers file and
+/usr/lib contains libmozjs.so file.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ZOO Kernel Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="installation.html">Installation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install-prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Unix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-opensuse.html">OpenSUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-centos.html">CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-debian.html">Debian / Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-windows.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-mac.html">Mac OS X</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">ZOO API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation Development Guide</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

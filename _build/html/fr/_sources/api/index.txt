@@ -1,0 +1,14 @@
+.. _api:
+
+Documentation de l'API de ZOO
+=============================
+
+Les sections suivantes vont vous aider avec l'API de ZOO:
+
+.. toctree::
+   :maxdepth: 2
+
+   description
+   classes
+   examples
+

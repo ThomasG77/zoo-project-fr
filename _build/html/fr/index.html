@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation ZOO 1.2 &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="#" />
+    <link rel="next" title="Documentation du noyau (kernel) de ZOO" href="kernel/index.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="dl/index.html">Download</a></li>
+  <li><a href="doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="kernel/index.html" title="Documentation du noyau (kernel) de ZOO"
+             accesskey="N">suivant</a> |</li>
+        <li><a href="#">ZOO Docs</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="documentation-zoo-1-2">
+<span id="home"></span><h1>Documentation ZOO 1.2<a class="headerlink" href="#documentation-zoo-1-2" title="Lien permanent vers ce titre">¶</a></h1>
+<table border="1" class="docutils">
+<caption>Quick Links</caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="kernel/index.html#kernel"><em>Documentation du noyau (kernel) de ZOO</em></a></td>
+<td><a class="reference internal" href="services/index.html#services"><em>ZOO Services Documentation</em></a></td>
+<td><a class="reference internal" href="api/index.html#api"><em>Documentation de l&#8217;API de ZOO</em></a></td>
+</tr>
+<tr><td><a class="reference internal" href="kernel/installation.html#kernel-installation"><em>Installation</em></a></td>
+<td><a class="reference internal" href="community/index.html#community"><em>ZOO Community</em></a></td>
+<td><a class="reference external" href="http://zoo-discuss.1049523.n5.nabble.com/">Chercher sur la mailing list (en)</a></td>
+</tr>
+<tr><td><a class="reference internal" href="development/documentation.html#documentation-development"><em>Guide pour le développement de la documentation</em></a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La documentation complète est aussi disponible sous la forme d&#8217;un unique
+<a class="reference external" href="./ZOOProject.pdf">document PDF</a> <a class="reference external" href="/ZOOProject.pdf"><img alt="PDF icon" src="_images/pdf1.png" style="width: 15px; height: 15px;" /></a>  et d&#8217;un <a class="reference external" href="./ZOOProject.epub">document ePub</a></p>
+</div>
+</div>
+<div class="section" id="a-propos-de-la-documentation-de-zoo">
+<h1>A propos de la documentation de ZOO<a class="headerlink" href="#a-propos-de-la-documentation-de-zoo" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La documentation ZOO est un processus collaboratif; dès que des utilisateurs contribuent à la documentation
+sur le Wiki de ZOO, le comité de documentation passe en revue les contributions
+pour les ajouter à la documentation officielle. Le comité est composé actuellement de:</p>
+<div class="highlight-python"><pre>Nicolas Bozon (nicolas.bozon at gmail.com)
+Gérald Fenoy (gerald.fenoy at geolabs.fr)
+Jeff McKenna (jmckenna at gatewaygeomatics.com)</pre>
+</div>
+<p>Le comité tient à remercier les premiers contributeurs à la documentation: <tt class="docutils literal"><span class="pre">Luca</span> <span class="pre">Delucchi</span></tt> et
+<tt class="docutils literal"><span class="pre">René-Luc</span> <span class="pre">D'Hont</span></tt>.</p>
+</div>
+<div class="section" id="wiki-de-zoo">
+<h1>Wiki de ZOO<a class="headerlink" href="#wiki-de-zoo" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les utilisateurs souhaitant contribuer aux documents doivent
+utiliser le <a class="reference external" href="http://www.zoo-project.org/trac">Wiki de ZOO</a>.</p>
+</div>
+<div class="section" id="documentation-officielle">
+<h1>Documentation officielle<a class="headerlink" href="#documentation-officielle" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette section contient la documentation officielle du projet ZOO.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kernel/index.html">Documentation du noyau (kernel) de ZOO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kernel/introduction.html">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kernel/introduction.html#utiliser-le-noyau-de-zoo-comme-une-plateforme-de-traitement-en-ligne">Utiliser le noyau de ZOO comme une plateforme de traitement en ligne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/introduction.html#langages-supportes">Langages supportés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/introduction.html#le-noyau-de-zoo-est-une-machine-a-expresso-pour-le-wps">Le noyau de ZOO est une machine à Expresso pour le WPS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kernel/installation.html">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kernel/install-prerequisites.html">Prérequis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/install-unix.html">Unix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/install-opensuse.html">OpenSUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/install-centos.html">CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/install-debian.html">Debian / Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/install-windows.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel/install-mac.html">Mac OS X</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services/index.html">ZOO Services Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services/introduction.html">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services/introduction.html#what-is-a-zoo-service">What is a ZOO Service?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/introduction.html#example-zoo-services">Example ZOO Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services/zcfg-reference.html">ZCFG : the ZOO Service Configuration File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services/zcfg-reference.html#main-metadata-information">Main Metadata Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/zcfg-reference.html#list-of-inputs">List of Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/zcfg-reference.html#list-of-outputs">List of Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/zcfg-reference.html#type-of-data-nodes">Type Of Data Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services/howtos.html">How To Setup ZOO Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services/howtos.html#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/howtos.html#php">PHP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/howtos.html#java">Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/howtos.html#javascript">Javascript</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services/examples.html">Service Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services/examples.html#gdal-zoo-service">GDAL ZOO Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services/examples.html#ogr-zoo-service">OGR ZOO Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Documentation de l&#8217;API de ZOO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/description.html">Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/description.html#download-zoo-api">Download ZOO API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/description.html#zoo-api-mit-x-11-license">ZOO API MIT/X-11 License</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/classes.html">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/examples.html">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/examples.html#zoo-process-example-of-use">ZOO.Process example of use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/examples.html#zoo-updatestatus">ZOO.UpdateStatus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community/index.html">ZOO Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="community/mailinglist.html">Mailing Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="community/mailinglist.html#zoo-discuss">ZOO-Discuss</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="community/irc.html">IRC Chat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="community/irc.html#server-and-channel-information">Server and Channel Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="community/irc.html#why-irc">Why IRC?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="community/irc.html#how-do-i-join">How do I join?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development/documentation.html">Guide pour le développement de la documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development/documentation.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/documentation.html#restructuredtext-reference-guides">reStructuredText Reference Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/documentation.html#restructuredtext-formatting">reStructuredText Formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/documentation.html#installing-and-using-sphinx-for-rst-html-generation">Installing and Using Sphinx for rst-html Generation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="categories">
+  <a href="dl/index.html"><h1>Download now !</h1>
+        <p class="version">ZOO Version 1.0</p></a>
+</div>
+<div class="donate">
+  <h1 id="SupportZOO-Project">Support ZOO-Project</h1>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="text-align: center;">
+      <input type="hidden" name="cmd" value="_s-xclick"></input>
+      <input type="hidden" name="hosted_button_id" value="WTHKTUQBHBHSQ"></input>
+      <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="border:0"></input>
+      <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"></img>
+    </form>
+</div>
+<div class="twitts">
+  <h1 id="FollowtheZOO">Follow the ZOO</h1>
+    <p>
+      <a style="padding:0; border:none" href="http://twitter.com/ZOO_Project"><img src="http://a0.twimg.com/a/1291253242/images/fronts/logo_withbird_home.png" alt="http://a0.twimg.com/a/1291253242/images/fronts/logo_withbird_home.png" title="http://a0.twimg.com/a/1291253242/images/fronts/logo_withbird_home.png"></img></a>
+    </p>
+</div>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="#" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

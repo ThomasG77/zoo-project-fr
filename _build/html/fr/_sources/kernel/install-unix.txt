@@ -1,0 +1,207 @@
+.. _kernel-installation-unix:
+
+Unix
+====
+
+.. contents:: Table des matières
+    :depth: 2
+    :backlinks: top
+
+.. note::
+   Vous devez être sûr d'avoir effectuer les :ref:`étapes prérequises <kernel-installation-prereq>` avant de suivre les instructions de cette page.
+
+Pour les impatients
+-------------------
+
+Pour compiler le programme CGI ``zoo_loader.cgi`` avec les options par défaut, allez dans le répertoire
+où vous avez extrait le code source du noyau de ZOO et utilisez les commandes suivantes:
+
+::
+
+  $ cd zoo-kernel
+  $ autoconf
+  $ ./configure
+  $ make
+
+A moins que des erreurs se produisent, vous devriez avoir les exécutables dans le répertoire courant pour le programme
+CGI ``zoo_loader.cgi``. Vous pouvez copier le programme ``zoo_loader.cgi`` et le fichier ``main.cfg`` dans répertoire
+CGI de votre serveur HTTP et commencer à l'utiliser.
+
+A cette étape, le noyau de ZOO devrait fonctionner. Dans tous les cas, n'oubliez pas de corriger la configuration de
+main.cfg pour définir ``tmpPath`` et ``tmpUrl`` pour l'adapter à la configuration de votre serveur web.
+
+Configurer les options
+----------------------
+
+Voici la liste des options disponibles comme retournée par la commande *./configure --help*:
+
+::
+
+  --with-gdal-config=FICHIER Spécifier un fichier gdal-config alternatif
+  --with-xml2config=FICHIER  Spécifier un fichier xml2-config alternatif
+  --with-python=CHEMIN       Pour permettre le support de python ou spécifier un
+                             répertoire alternatif pour l'installation de python,
+                             désactivé par défaut
+  --with-php=CHEMIN          Pour permettre le support de php ou spécifier un
+                             répertoire alternatif pour l'installation de python,
+                             désactivé par défaut
+  --with-perl=CHEMIN         Pour permettre le support de perl ou spécifier un
+                             répertoire alternatif pour l'installation de python,
+                             désactivé par défaut
+  --with-java=CHEMIN         Pour permettre le support de java, spécifier le JDK_HOME,
+                             désactivé par défaut
+  --with-js=CHEMIN           Spécifier --with-js=chemin-vers-le-js pour permettre le support
+                             javascript, spécifier --with-js pour les systèmes linux basés sur
+                             debian, le support js est désactivé par défaut
+
+Toutes les options sont décrites avec plus de détails ci-dessous.
+
+Support de GDAL (Requis)
+************************
+
+Si votre programme gdal-config n'est pas trouvé dans le chemin PATH alors vous pouvez utiliser l'option
+``--with-gdal-config`` pour spécifier son emplacement. Par exemple, supposons que votre gdal-config était
+installé dans /usr/local/bin et que ce répertoire n'est pas dans votre PATH, alors vous pouvez utiliser
+la commande suivante:
+
+::
+
+  $ ./configure --with-gdal-config=/usr/local/bin/gdal-config
+
+Support de XML2L (Requis)
+*************************
+
+Si votre programme xml2-config n'est pas trouvé dans le chemin PATH alors vous pouvez utiliser l'option
+``--with-xml2config`` pour spécifier son emplacement. Par exemple, supposons que votre xml2-config était
+installé dans /usr/local/bin et que ce répertoire n'est pas dans votre PATH, alors vous pouvez utiliser
+la commande suivante:
+
+::
+
+  $ ./configure --with-xml2config=/usr/local/bin/xml2-config
+
+Support de Python (Optionnel)
+*****************************
+
+Si vous voulez activé le support de Python pour le noyau de ZOO alors vous devrez utiliser
+l'option ``--with-python``. Si votre programme python-config est trouvé dans votre PATH alors
+vous n'aurez pas besoin de spécifier le chemin où Python est installé, tel que:
+
+::
+
+  $ ./configure --with-python
+
+Cela suppose que python-config est trouvé dans le chemin PATH.
+
+Dans le cas où votre python-config n'est pas dans le PATH, talors vous pouvez spécifier le
+répertoire d'installation Python que vous utilisez. Par exemple, supposons que vous ayez
+installé Python dans /usr/local, alors vous pouvez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-python=/usr/local
+
+Cela suppose que /usr/local/bin/python-config existe.
+
+Support de PHP (Optionnel)
+**************************
+
+Pour être capable d'activer le support de PHP pour le noyau de ZOO, vous devrez avoir un
+installation de PHP incluse en locale. Pour plus d'informations à propos des options de
+configuration requises quand vous compilez PHP, vous pouvez vous réferer à cette page :
+
+     http://zoo-project.org/trac/wiki/ZooKernel/Embed/PHP
+
+Si vous voulez activer le support de PHP pour le noyau de ZOO alors vous devrez utiliser l'option
+``--with-php``. Si votre programme php-config est trouvé dans votre PATH alors vous n'aurez pas à
+spécifier le chemin où PHP est installé, ainsi vous pouvez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-php
+
+Cela suppose que php-config existe dans votre PATH.
+
+Dans le cas où votre programme php-config n'est pas trouvé dans le PATH, alors vous pouvez spécifier le
+répertoire d'installation de PHP que vous utilisez. Par exemple, supposons que vous avez installé PHP
+dans /usr/local, alors vous pouvez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-php=/usr/local
+
+Cela suppose que /usr/local/bin/php-config existe.
+
+Support de Perl (Optionnel)
+***************************
+
+Si vous voulez activer le support de Perl pour le noyau de ZOO alors vous devrez utiliser
+l'option ``--with-perl``. Si vous n'avez défini aucune valeur à cette option, alors le programme perl
+sera cherché dans votre PATH. Dans un tel cas, vous pouvez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-perl
+
+Cela suppose que perl est trouvé dans le PATH.
+
+Dans d'autres cas, pour une installation de Perl personnalisée, vous pouvez définir le répertoire d'installation.
+Par exemple, supposons que Perl est installé dans /usr/local et que /usr/local/bin n'est pas dans votre PATH,
+alors vous pouvez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-perl=/usr/local
+
+Cela suppose que /usr/local/bin/perl existe.
+
+Support de Java (Optionnel)
+***************************
+
+Si vous voulez activer le support de Java pour le noyau de ZOO alors vous devrez utiliser
+l'option ``--with-java`` et définir le chemin d'installation du JDK Java. Par exemple,
+supposons que votre SDK Java est installé dans le répertoire /usr/lib/jvm/java-6-sun-1.6.0.22/,
+alors vous pouvez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-java=/usr/lib/jvm/java-6-sun-1.6.0.22/
+
+Cela suppose que les sous-répertoires include/linux et jre/lib/i386/client/ existent dans
+/usr/lib/jvm/java-6-sun-1.6.0.22/, include/linux contient le fichier d'en-tête jni.h et
+jre/lib/i386/client/ contient le fichier libjvm.so.
+
+.. note::
+   Avec Mac OS X vous avez seulement à définir ``macos`` comme valeur pour l'option ``--with-java``
+   pour activer le support Java. Par exemple:
+
+   ::
+
+     $ ./configure --with-java=macos
+
+Support de JavaScript (Optionnel)
+*********************************
+
+Si vous voulez activer le support de JavaScript pour le noyau de ZOO alors vous devrez utiliser
+l'option ``--with-js``. Si vous utilisez une distribution GNU/Linux basé sur Debian alors dpkg sera
+utilisé pour détecter si les paquets requis sont installés et vous n'aurez pas à spécifier quoi
+que ce soit ici, ainsi vous pouvez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-js
+
+Cela suppose que js_api.h et libmozjs.so sont trouvés dans les répertoires par défaut.
+
+Si vous avez une installation personnalisée de SpiderMonkey ou que vous n'utilisez pas un système
+de gestion des paquets basés sur Debian, alors vous devrez spécifier le répertoire où vous l'avez
+installé. Par exemple, supposons que vous ayez installé votre SpiderMonkey dans /usr, alors vous
+devrez utiliser la commande suivante:
+
+::
+
+  $ ./configure --with-js=/usr
+
+Cela suppose que /usr/include/js existe et contient le fichier d'en-tête js_api.h et que
+/usr/lib contient le fichier libmozjs.so.
+

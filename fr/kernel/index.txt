@@ -1,0 +1,13 @@
+.. _kernel:
+
+Documentation du noyau (kernel) de ZOO
+======================================
+
+Les sections suivantes vont vous aider sur le noyau de zoo:
+
+.. toctree::
+   :maxdepth: 2
+
+   introduction
+   installation
+

@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Classes &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="ZOO API Documentation" href="index.html" />
+    <link rel="next" title="ZOO" href="zoo.html" />
+    <link rel="prev" title="Description" href="description.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo.html" title="ZOO"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="description.html" title="Description"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">ZOO API Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="classes">
+<span id="api-classes"></span><h1>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h1>
+<p>The following classes are available in the ZOO API:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">ZOO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo.html#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-bounds.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-bounds.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-feature.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-feature.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-format.html">ZOO.Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-geojson.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-geojson.html#parsecoords-properties">parseCoords Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-geojson.html#parsecoords-functions">parseCoords Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-geojson.html#extract-properties">extract Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-geojson.html#extract-functions">extract Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-gml.html#properties-and-functions">Properties and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-json.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-json.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-json.html#serialize-properties">Serialize Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-json.html#serialize-functions">Serialize Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-kml.html#properties-and-functions">Properties and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-wkt.html#functions-and-properties">Functions and Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-format-wps.html#functions-and-properties">Functions and Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-collection.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-collection.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-curve.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-curve.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-linearring.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-linearring.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-linestring.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-multilinestring.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-multipoint.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-multipoint.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-multipolygon.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-point.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-point.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-geometry-polygon.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-process.html">ZOO.Process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-process.html#properties-and-functions">Properties and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-projection.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zoo-projection.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-request.html">ZOO.Request</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-request.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zoo-string.html">ZOO.String</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zoo-string.html#functions-and-properties">Functions and Properties</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">ZOO Kernel Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ZOO API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation Development Guide</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

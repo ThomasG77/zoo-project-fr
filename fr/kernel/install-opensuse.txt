@@ -1,0 +1,67 @@
+.. _kernel-installation-opensuse:
+
+OpenSUSE
+========
+
+.. contents:: Table des matières
+    :depth: 2
+    :backlinks: top
+
+Le noyau Zoo-Kernel est maintenu comme paquet dans `OpenSUSE Build Service (OBS) <https://build.opensuse.org/package/show?package=zoo-kernel&project=Application%3AGeo>`__.
+De cette manière, les rpm  sont fournis pour toutes les versions de Linux openSUSE (11.2, 11.3, 11.4, Factory).
+
+Versions stables
+----------------
+
+Pour installer le noyau de Zoo-Kernel dans openSUSE il y a 3 manières de faire:
+
+L'installateur en un clic
+*************************
+
+L'installateur en un clic peut être trouvé `ici <http://software.opensuse.org/search?q=zoo-kernel&baseproject=openSUSE%3A11.4&lang=en&exclude_debug=true>`__.
+Pour openSUSE 11.4 voici le `lien <http://software.opensuse.org/ymp/Application:Geo/openSUSE_11.4/zoo-kernel.ymp?base=openSUSE%3A11.4&query=zoo-kernel>`__ direct.
+
+Le gestionnaire de logiciels Yast utilisant une interface graphique
+*******************************************************************
+
+Le dépôt `Application:Geo <http://download.opensuse.org/repositories/Application:/Geo/>`__ doit être ajouté
+aux dépôts logiciels et alors le noyau Zoo-Kernel peut être trouvé dans la partie de gestion des logiciels en
+faisant une recherche.
+
+La ligne de commande (identifié comme root sous openSUSE 11.4)
+**************************************************************
+
+::
+
+  zypper ar http://download.opensuse.org/repositories/Application:/Geo/openSUSE_11.4/
+  zypper refresh
+  zypper install zoo-kernel
+
+Version instable
+----------------
+
+La dernière version du noyau Zoo-Kernel peut être trouvé dans OBS sous le projet `home:tzotsos <https://build.opensuse.org/project/show?project=home%3Atzotsos>`__.
+Les paquets du noyau Zoo-Kernel sont maintenus et testés ici avant d'être mis à disposition sur le dépôt Application:Geo.
+
+Les méthodes d'installation sont identiques à la version stable. Assurez vous d'utiliser `ce dépôt <http://download.opensuse.org/repositories/home:/tzotsos/>`__ à la place.
+
+La ligne de commande (identifié comme root sous openSUSE 11.4)
+**************************************************************
+
+::
+
+  zypper ar http://download.opensuse.org/repositories/home:/tzotsos/openSUSE_11.4/
+  zypper refresh
+  zypper install zoo-kernel
+  zypper install zoo-kernel-grass-bridge
+
+De manière additionnelle, vous avez l'option d'ajouter le paquet zoo-wps-grass-bridge. Cette option installera
+automatiquement grass7 (svn trunk).
+
+Vérifier l'installation
+-----------------------
+
+- http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=&Service=WPS&Request=GetCapabilities&Version=1.0.0
+- http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=&Service=WPS&Request=DescribeProcess&Version=1.0.0&Identifier=HelloPy
+- http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=&Service=WPS&Request=Execute&Version=1.0.0&Identifier=HelloPy&DataInputs=a=myname
+

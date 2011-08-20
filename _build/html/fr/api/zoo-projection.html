@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZOO.Projection &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="ZOO.Request" href="zoo-request.html" />
+    <link rel="prev" title="ZOO.Process" href="zoo-process.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo-request.html" title="ZOO.Request"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="zoo-process.html" title="ZOO.Process"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >Documentation de l&#8217;API de ZOO</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zoo-projection">
+<span id="api-zoo-projection"></span><h1>ZOO.Projection<a class="headerlink" href="#zoo-projection" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Class for coordinate transforms between coordinate systems.</p>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#proj"><em>proj</em></a></td>
+<td>{Number} Proj4js.Proj instance.</td>
+</tr>
+<tr><td><a class="reference internal" href="#projcode"><em>projCode</em></a></td>
+<td>{String}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#id1"><em>ZOO.Projection</em></a></td>
+<td>This class offers several methods for interacting with a wrapped zoo-pro4js projection object.</td>
+</tr>
+<tr><td><a class="reference internal" href="#getcode"><em>getCode</em></a></td>
+<td>Get the string SRS code.</td>
+</tr>
+<tr><td><a class="reference internal" href="#getunits"><em>getUnits</em></a></td>
+<td>Get the units string for the projection &#8211; returns null if zoo-proj4js is not available.</td>
+</tr>
+<tr><td><a class="reference internal" href="#tostring"><em>toString</em></a></td>
+<td>Convert projection to string (getCode wrapper).</td>
+</tr>
+<tr><td><a class="reference internal" href="#equals"><em>equals</em></a></td>
+<td>Test equality of two projection instances.</td>
+</tr>
+<tr><td><a class="reference internal" href="#destroy"><em>destroy</em></a></td>
+<td>Destroy projection object.</td>
+</tr>
+<tr><td><a class="reference internal" href="#transform"><em>transform</em></a></td>
+<td>Transform a point coordinate from one projection to another.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<dl class="docutils" id="proj">
+<dt>proj</dt>
+<dd><tt class="docutils literal"><span class="pre">{Object}</span></tt> Proj4js.Proj instance.</dd>
+</dl>
+<dl class="docutils" id="projcode">
+<dt>projCode</dt>
+<dd><tt class="docutils literal"><span class="pre">{String}</span></tt></dd>
+</dl>
+<p><strong>Functions</strong></p>
+<dl class="docutils" id="id1">
+<dt>ZOO.Projection</dt>
+<dd><p class="first">This class offers several methods for interacting with a wrapped zoo-pro4js projection object.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">projCode</span> <span class="pre">{String}</span></tt> A string identifying the Well Known Identifier for the projection.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> An optional object to set additional properties.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="#api-zoo-projection"><em>{ZOO.Projection}</em></a> A projection object.</p>
+</dd>
+</dl>
+<dl class="docutils" id="getcode">
+<dt>getCode</dt>
+<dd><div class="first highlight-python"><pre>getCode: function()</pre>
+</div>
+<p>Get the string SRS code.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{String}</span></tt> The SRS code.</p>
+</dd>
+</dl>
+<dl class="docutils" id="getunits">
+<dt>getUnits</dt>
+<dd><div class="first highlight-python"><pre>getUnits: function()</pre>
+</div>
+<p>Get the units string for the projection &#8211; returns null if zoo-proj4js is not available.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{String}</span></tt> The units abbreviation.</p>
+</dd>
+</dl>
+<dl class="docutils" id="tostring">
+<dt>toString</dt>
+<dd><div class="first highlight-python"><pre>toString: function()</pre>
+</div>
+<p>Convert projection to string (getCode wrapper).</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{String}</span></tt> The projection code.</p>
+</dd>
+</dl>
+<dl class="docutils" id="equals">
+<dt>equals</dt>
+<dd><div class="first highlight-python"><pre>equals: function(projection)</pre>
+</div>
+<p>Test equality of two projection instances.  Determines equality based soley on the projection code.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> The two projections are equivalent.</p>
+</dd>
+</dl>
+<dl class="docutils" id="destroy">
+<dt>destroy</dt>
+<dd><div class="first highlight-python"><pre>destroy: function()</pre>
+</div>
+<p class="last">Destroy projection object.</p>
+</dd>
+</dl>
+<dl class="docutils" id="transform">
+<dt>transform</dt>
+<dd><div class="first highlight-python"><div class="highlight"><pre><span class="n">ZOO</span><span class="o">.</span><span class="n">Projection</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">point</span><span class="p">,</span><span class="n">source</span><span class="p">,</span><span class="n">dest</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Transform a point coordinate from one projection to another.  Note that the input point is
+transformed in place.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">point</span> <span class="pre">{{ZOO.Geometry.Point&gt;</span> <span class="pre">|</span> <span class="pre">Object}</span></tt> An object with x and y properties representing coordinates in those dimensions.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">sourceProj</span> <span class="pre">{ZOO.Projection}</span></tt> Source map coordinate system</div>
+<div class="line"><tt class="docutils literal"><span class="pre">destProj</span> <span class="pre">{ZOO.Projection}</span></tt> Destination map coordinate system</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">point</span> <span class="pre">{object}</span></tt> A transformed coordinate.  The original point is modified.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table des matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Documentation du noyau (kernel) de ZOO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation de l&#8217;API de ZOO</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="classes.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Guide pour le développement de la documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

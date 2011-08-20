@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZOO.Format.KML &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="ZOO.Format.WKT" href="zoo-format-wkt.html" />
+    <link rel="prev" title="ZOO.Format.JSON" href="zoo-format-json.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo-format-wkt.html" title="ZOO.Format.WKT"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="zoo-format-json.html" title="ZOO.Format.JSON"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >Documentation de l&#8217;API de ZOO</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zoo-format-kml">
+<span id="api-zoo-format-kml"></span><h1>ZOO.Format.KML<a class="headerlink" href="#zoo-format-kml" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Read/Write KML.</p>
+<p>Inherits from</p>
+<ul class="simple">
+<li><a class="reference internal" href="zoo-format.html#api-zoo-format"><em>ZOO.Format</em></a></li>
+</ul>
+<div class="section" id="properties-and-functions">
+<h2>Properties and Functions<a class="headerlink" href="#properties-and-functions" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#kmlns"><em>kmlns</em></a></td>
+<td>{String} KML Namespace to use.</td>
+</tr>
+<tr><td><a class="reference internal" href="#foldersname"><em>foldersName</em></a></td>
+<td>{String} Name of the folders.</td>
+</tr>
+<tr><td><a class="reference internal" href="#foldersdesc"><em>foldersDesc</em></a></td>
+<td>{String} Description of the folders.</td>
+</tr>
+<tr><td><a class="reference internal" href="#placemarksdesc"><em>placemarksDesc</em></a></td>
+<td>{String} Name of the placemarks.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extractattributes"><em>extractAttributes</em></a></td>
+<td>{Boolean} Extract attributes from KML.</td>
+</tr>
+<tr><td><a class="reference internal" href="#id1"><em>ZOO.Format.KML</em></a></td>
+<td>Create a new parser for KML.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsefeatures"><em>parseFeatures</em></a></td>
+<td>Loop through all Placemark nodes and parse them.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsefeature"><em>parseFeature</em></a></td>
+<td>This function is the core of the KML parsing code in ZOO.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsegeometry"><em>parseGeometry</em></a></td>
+<td>Properties of this object are the functions that parse geometries based on their type.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsegeometry-point"><em>parseGeometry.point</em></a></td>
+<td>Given a KML node representing a point geometry, create a ZOO point geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsegeometry-linestring"><em>parseGeometry.linestring</em></a></td>
+<td>Given a KML node representing a linestring geometry, create a ZOO linestring geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsegeometry-polygon"><em>parseGeometry.polygon</em></a></td>
+<td>Given a KML node representing a polygon geometry, create a ZOO polygon geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parsegeometry-multigeometry"><em>parseGeometry.multigeometry</em></a></td>
+<td>Given a KML node representing a multigeometry, create a ZOO geometry collection.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parseattributes"><em>parseAttributes</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference internal" href="#parseextendeddata"><em>parseExtendedData</em></a></td>
+<td>Parse ExtendedData from KML.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-format-wkt.html#write"><em>write</em></a></td>
+<td>Accept Feature Collection, and return a string.</td>
+</tr>
+<tr><td><a class="reference internal" href="#createplacemark"><em>createPlacemark</em></a></td>
+<td>Creates and returns a KML placemark node representing the given feature.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometrynode"><em>buildGeometryNode</em></a></td>
+<td>Builds and returns a KML geometry node with the given geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry"><em>buildGeometry</em></a></td>
+<td>Object containing methods to do the actual geometry node building based on geometry type.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-point"><em>buildGeometry.point</em></a></td>
+<td>Given a ZOO point geometry, create a KML point.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-multipoint"><em>buildGeometry.multipoint</em></a></td>
+<td>Given a ZOO multipoint geometry, create a KML GeometryCollection.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-linestring"><em>buildGeometry.linestring</em></a></td>
+<td>Given a ZOO linestring geometry, create a KML linestring.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-multilinestring"><em>buildGeometry.multilinestring</em></a></td>
+<td>Given a ZOO multilinestring geometry, create a KML GeometryCollection.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-linearring"><em>buildGeometry.linearring</em></a></td>
+<td>Given a ZOO linearring geometry, create a KML linearring.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-polygon"><em>buildGeometry.polygon</em></a></td>
+<td>Given a ZOO polygon geometry, create a KML polygon.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-multipolygon"><em>buildGeometry.multipolygon</em></a></td>
+<td>Given a ZOO multipolygon geometry, create a KML GeometryCollection.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildgeometry-collection"><em>buildGeometry.collection</em></a></td>
+<td>Given a ZOO geometry collection, create a KML MultiGeometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#buildcoordinatesnode"><em>buildCoordinatesNode</em></a></td>
+<td>Builds and returns the KML coordinates node with the given geometry &lt;coordinates&gt;...&lt;/coordinates&gt;</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils" id="kmlns">
+<dt>kmlns</dt>
+<dd><tt class="docutils literal"><span class="pre">{String}</span></tt> KML Namespace to use. Defaults to 2.2 namespace.</dd>
+</dl>
+<dl class="docutils" id="foldersname">
+<dt>foldersName</dt>
+<dd><tt class="docutils literal"><span class="pre">{String}</span></tt> Name of the folders. Default is &#8220;ZOO export&#8221;.  If set to null, no name element will be created.</dd>
+</dl>
+<dl class="docutils" id="foldersdesc">
+<dt>foldersDesc</dt>
+<dd><tt class="docutils literal"><span class="pre">{String}</span></tt> Description of the folders. Default is &#8220;Exported on [date].&#8221;  If set to null, no description element will be created.</dd>
+</dl>
+<dl class="docutils" id="placemarksdesc">
+<dt>placemarksDesc</dt>
+<dd><tt class="docutils literal"><span class="pre">{String}</span></tt> Name of the placemarks. Default is &#8220;No description available&#8221;.</dd>
+</dl>
+<dl class="docutils" id="extractattributes">
+<dt>extractAttributes</dt>
+<dd><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> Extract attributes from KML. Default is true.  Extracting styleUrls requires this to be set to true</dd>
+</dl>
+<dl class="docutils" id="id1">
+<dt>ZOO.Format.KML</dt>
+<dd><p class="first">Create a new parser for KML.</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> An optional object whose properties will be set on this instance.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsefeatures">
+<dt>parseFeatures</dt>
+<dd><div class="first highlight-python"><pre>parseFeatures: function(nodes)</pre>
+</div>
+<p>Loop through all Placemark nodes and parse them.  Will create a list of features</p>
+<p><em>Parameters</em></p>
+<div class="last line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">nodes</span> <span class="pre">{Array}</span></tt> of {E4XElement} data to read/parse.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> Hash of options</div>
+</div>
+</dd>
+</dl>
+<dl class="docutils" id="parsefeature">
+<dt>parseFeature</dt>
+<dd><div class="first highlight-python"><pre>parseFeature: function(node)</pre>
+</div>
+<p>This function is the core of the KML parsing code in ZOO.  It creates the geometries
+that are then attached to the returned feature, and calls parseAttributes() to get
+attribute data out.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">node</span> <span class="pre">{E4XElement}</span></tt></p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A vector feature.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsegeometry">
+<dt>parseGeometry</dt>
+<dd>Properties of this object are the functions that parse geometries based on their type.</dd>
+</dl>
+<dl class="docutils" id="parsegeometry-point">
+<dt>parseGeometry.point</dt>
+<dd><p class="first">Given a KML node representing a point geometry, create a ZOO point geometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">node</span> <span class="pre">{E4XElement}</span></tt> A KML Point node.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> A point geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsegeometry-linestring">
+<dt>parseGeometry.linestring</dt>
+<dd><p class="first">Given a KML node representing a linestring geometry, create a ZOO linestring geometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">node</span> <span class="pre">{E4XElement}</span></tt> A KML LineString node.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-linestring.html#api-zoo-geometry-linestring"><em>{ZOO.Geometry.LineString}</em></a> A linestring geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsegeometry-polygon">
+<dt>parseGeometry.polygon</dt>
+<dd><p class="first">Given a KML node representing a polygon geometry, create a ZOO polygon geometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">node</span> <span class="pre">{E4XElement}</span></tt> A KML Polygon node.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-polygon.html#api-zoo-geometry-polygon"><em>{ZOO.Geometry.Polygon}</em></a> A polygon geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parsegeometry-multigeometry">
+<dt>parseGeometry.multigeometry</dt>
+<dd><p class="first">Given a KML node representing a multigeometry, create a ZOO geometry collection.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">node</span> <span class="pre">{E4XElement}</span></tt> A KML MultiGeometry node.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-collection.html#api-zoo-geometry-collection"><em>{ZOO.Geometry.Collection}</em></a> A geometry collection.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parseattributes">
+<dt>parseAttributes</dt>
+<dd><div class="first highlight-python"><pre>parseAttributes: function(node)</pre>
+</div>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">node</span> <span class="pre">{E4XElement}</span></tt></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Object}</span></tt> An attributes object.</p>
+</dd>
+</dl>
+<dl class="docutils" id="parseextendeddata">
+<dt>parseExtendedData</dt>
+<dd><div class="first highlight-python"><pre>parseExtendedData: function(node)</pre>
+</div>
+<p>Parse ExtendedData from KML.  Limited support for schemas/datatypes.  See <a class="reference external" href="http://code.google.com/apis/kml/documentation/kmlreference.html#extendeddata">http://code.google.com/apis/kml/documentation/kmlreference.html#extendeddata</a>
+for more information on extendeddata.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">node</span> <span class="pre">{E4XElement}</span></tt></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Object}</span></tt> An attributes object.</p>
+</dd>
+</dl>
+<dl class="docutils" id="write">
+<dt>write</dt>
+<dd><div class="first highlight-python"><pre>write: function(features)</pre>
+</div>
+<p>Accept Feature Collection, and return a string.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">features</span></tt> <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{Array(ZOO.Feature)}</em></a> An array of features.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{String}</span></tt> A KML string.</p>
+</dd>
+</dl>
+<dl class="docutils" id="createplacemark">
+<dt>createPlacemark</dt>
+<dd><div class="first highlight-python"><pre>createPlacemark: function(feature)</pre>
+</div>
+<p>Creates and returns a KML placemark node representing the given feature.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">feature</span></tt> <a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt></p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometrynode">
+<dt>buildGeometryNode</dt>
+<dd><div class="first highlight-python"><pre>buildGeometryNode: function(geometry)</pre>
+</div>
+<p>Builds and returns a KML geometry node with the given geometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt></p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry">
+<dt>buildGeometry</dt>
+<dd>Object containing methods to do the actual geometry node building based on geometry type.</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-point">
+<dt>buildGeometry.point</dt>
+<dd><p class="first">Given a ZOO point geometry, create a KML point.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> A point geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML point node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-multipoint">
+<dt>buildGeometry.multipoint</dt>
+<dd><p class="first">Given a ZOO multipoint geometry, create a KML GeometryCollection.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-multipoint.html#api-zoo-geometry-multipoint"><em>{ZOO.Geometry.MultiPoint}</em></a> A multipoint geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML GeometryCollection node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-linestring">
+<dt>buildGeometry.linestring</dt>
+<dd><p class="first">Given a ZOO linestring geometry, create a KML linestring.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-linestring.html#api-zoo-geometry-linestring"><em>{ZOO.Geometry.LineString}</em></a> A linestring geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML linestring node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-multilinestring">
+<dt>buildGeometry.multilinestring</dt>
+<dd><p class="first">Given a ZOO multilinestring geometry, create a KML GeometryCollection.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-multilinestring.html#api-zoo-geometry-multilinestring"><em>{ZOO.Geometry.MultiLineString}</em></a> A multilinestring geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML GeometryCollection node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-linearring">
+<dt>buildGeometry.linearring</dt>
+<dd><p class="first">Given a ZOO linearring geometry, create a KML linearring.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-linearring.html#api-zoo-geometry-linearring"><em>{ZOO.Geometry.LinearRing}</em></a> A linearring geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML linearring node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-polygon">
+<dt>buildGeometry.polygon</dt>
+<dd><p class="first">Given a ZOO polygon geometry, create a KML polygon.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-polygon.html#api-zoo-geometry-polygon"><em>{ZOO.Geometry.Polygon}</em></a> A polygon geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML polygon node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-multipolygon">
+<dt>buildGeometry.multipolygon</dt>
+<dd><p class="first">Given a ZOO multipolygon geometry, create a KML GeometryCollection.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> A multipolygon geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML GeometryCollection node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildgeometry-collection">
+<dt>buildGeometry.collection</dt>
+<dd><p class="first">Given a ZOO geometry collection, create a KML MultiGeometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry-collection.html#api-zoo-geometry-collection"><em>{ZOO.Geometry.Collection}</em></a> A geometry collection.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt> A KML MultiGeometry node.</p>
+</dd>
+</dl>
+<dl class="docutils" id="buildcoordinatesnode">
+<dt>buildCoordinatesNode</dt>
+<dd><div class="first highlight-python"><pre>buildCoordinatesNode: function(geometry)</pre>
+</div>
+<p>Builds and returns the KML coordinates node with the given geometry &lt;coordinates&gt;...&lt;/coordinates&gt;</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a></p>
+<p><em>Return</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{E4XElement}</span></tt></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table des matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Documentation du noyau (kernel) de ZOO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation de l&#8217;API de ZOO</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="classes.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Guide pour le développement de la documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

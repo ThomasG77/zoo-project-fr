@@ -1,0 +1,56 @@
+.. _home:
+
+Documentation ZOO 1.2
+=====================
+
+..   csv-table:: Quick Links
+
+    :ref:`kernel`,:ref:`services`,:ref:`api`
+    :ref:`kernel-installation`,:ref:`community`,`Chercher sur la mailing list (en) <http://zoo-discuss.1049523.n5.nabble.com/>`__
+    :ref:`documentation_development`,,
+.. note::
+    La documentation complète est aussi disponible sous la forme d'un unique
+    `document PDF <./ZOOProject.pdf>`__ |image|  et d'un `document ePub <./ZOOProject.epub>`__
+
+A propos de la documentation de ZOO
+===================================
+
+La documentation ZOO est un processus collaboratif; dès que des utilisateurs contribuent à la documentation
+sur le Wiki de ZOO, le comité de documentation passe en revue les contributions
+pour les ajouter à la documentation officielle. Le comité est composé actuellement de:
+
+::
+
+  Nicolas Bozon (nicolas.bozon at gmail.com)
+  Gérald Fenoy (gerald.fenoy at geolabs.fr)
+  Jeff McKenna (jmckenna at gatewaygeomatics.com)
+
+Le comité tient à remercier les premiers contributeurs à la documentation: ``Luca Delucchi`` et
+``René-Luc D'Hont``.
+
+Wiki de ZOO
+===========
+
+Les utilisateurs souhaitant contribuer aux documents doivent
+utiliser le `Wiki de ZOO <http://www.zoo-project.org/trac>`__.
+
+Documentation officielle
+========================
+
+Cette section contient la documentation officielle du projet ZOO.
+
+.. |image| image:: ../_static/images/pdf.png
+   :height: 15
+   :width: 15
+   :alt: PDF icon
+   :target: /ZOOProject.pdf
+
+.. toctree::
+   :maxdepth: 3
+
+   kernel/index
+   services/index
+   api/index
+   community/index
+   development/documentation
+

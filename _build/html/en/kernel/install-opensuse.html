@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenSUSE &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Installation" href="installation.html" />
+    <link rel="next" title="CentOS" href="install-centos.html" />
+    <link rel="prev" title="Unix" href="install-unix.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install-centos.html" title="CentOS"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install-unix.html" title="Unix"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >ZOO Kernel Documentation</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="opensuse">
+<span id="kernel-installation-opensuse"></span><h1><a class="toc-backref" href="#table-of-contents">OpenSUSE</a><a class="headerlink" href="#opensuse" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#opensuse" id="id1">OpenSUSE</a><ul>
+<li><a class="reference internal" href="#stable-releases" id="id2">Stable Releases</a></li>
+<li><a class="reference internal" href="#unstable-version" id="id3">Unstable Version</a></li>
+<li><a class="reference internal" href="#try-the-installation" id="id4">Try the Installation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Zoo-Kernel is maintained as a package in <a class="reference external" href="https://build.opensuse.org/package/show?package=zoo-kernel&amp;project=Application%3AGeo">OpenSUSE Build Service (OBS)</a>.
+This way, rpm&#8217;s are provided for all versions of openSUSE Linux (11.2, 11.3, 11.4, Factory).</p>
+<div class="section" id="stable-releases">
+<h2><a class="toc-backref" href="#table-of-contents">Stable Releases</a><a class="headerlink" href="#stable-releases" title="Permalink to this headline">¶</a></h2>
+<p>For installing Zoo-Kernel in openSUSE there are 3 ways available:</p>
+<div class="section" id="one-click-installer">
+<h3>One Click Installer<a class="headerlink" href="#one-click-installer" title="Permalink to this headline">¶</a></h3>
+<p>One-click installer that can be found  <a class="reference external" href="http://software.opensuse.org/search?q=zoo-kernel&amp;baseproject=openSUSE%3A11.4&amp;lang=en&amp;exclude_debug=true">here</a>.
+For openSUSE 11.4 this is the direct <a class="reference external" href="http://software.opensuse.org/ymp/Application:Geo/openSUSE_11.4/zoo-kernel.ymp?base=openSUSE%3A11.4&amp;query=zoo-kernel">link</a>.</p>
+</div>
+<div class="section" id="yast-software-manager-using-a-gui">
+<h3>Yast Software Manager using a GUI<a class="headerlink" href="#yast-software-manager-using-a-gui" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="http://download.opensuse.org/repositories/Application:/Geo/">Application:Geo</a> repository has to be added
+to the Software Repositories and then Zoo-kernel can be found in Software Management through search.</p>
+</div>
+<div class="section" id="command-line-as-root-for-opensuse-11-4">
+<h3>Command line (as root for openSUSE 11.4)<a class="headerlink" href="#command-line-as-root-for-opensuse-11-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>zypper ar http://download.opensuse.org/repositories/Application:/Geo/openSUSE_11.4/
+zypper refresh
+zypper install zoo-kernel</pre>
+</div>
+</div>
+</div>
+<div class="section" id="unstable-version">
+<h2><a class="toc-backref" href="#table-of-contents">Unstable Version</a><a class="headerlink" href="#unstable-version" title="Permalink to this headline">¶</a></h2>
+<p>The latest development version of ZOO-Kernel can be found in OBS under the project <a class="reference external" href="https://build.opensuse.org/project/show?project=home%3Atzotsos">home:tzotsos</a>.
+ZOO-Kernel packages are maintained and tested there before being released to the Application:Geo repository.</p>
+<p>Installation methods are identical as the stable version. Make sure to use <a class="reference external" href="http://download.opensuse.org/repositories/home:/tzotsos/">this</a> repository instead.</p>
+<div class="section" id="command-line-installation-as-root-for-opensuse-11-4">
+<h3>Command line installation (as root for openSUSE 11.4)<a class="headerlink" href="#command-line-installation-as-root-for-opensuse-11-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>zypper ar http://download.opensuse.org/repositories/home:/tzotsos/openSUSE_11.4/
+zypper refresh
+zypper install zoo-kernel
+zypper install zoo-kernel-grass-bridge</pre>
+</div>
+<p>Additionally, there is the option of adding the zoo-wps-grass-bridge package. This option will automatically install grass7 (svn trunk).</p>
+</div>
+</div>
+<div class="section" id="try-the-installation">
+<h2><a class="toc-backref" href="#table-of-contents">Try the Installation</a><a class="headerlink" href="#try-the-installation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=GetCapabilities&amp;Version=1.0.0">http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=GetCapabilities&amp;Version=1.0.0</a></li>
+<li><a class="reference external" href="http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=DescribeProcess&amp;Version=1.0.0&amp;Identifier=HelloPy">http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=DescribeProcess&amp;Version=1.0.0&amp;Identifier=HelloPy</a></li>
+<li><a class="reference external" href="http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=Execute&amp;Version=1.0.0&amp;Identifier=HelloPy&amp;DataInputs=a=myname">http://localhost/cgi-bin/zoo_loader.cgi?ServiceProvider=&amp;metapath=&amp;Service=WPS&amp;Request=Execute&amp;Version=1.0.0&amp;Identifier=HelloPy&amp;DataInputs=a=myname</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ZOO Kernel Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="installation.html">Installation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install-prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-unix.html">Unix</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">OpenSUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-centos.html">CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-debian.html">Debian / Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-windows.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-mac.html">Mac OS X</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">ZOO API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation Development Guide</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/206/trunk/docs/services
+END
+introduction.txt
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/206/trunk/docs/services/introduction.txt
+END
+howtos.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/146/trunk/docs/services/howtos.txt
+END
+zcfg-reference.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/206/trunk/docs/services/zcfg-reference.txt
+END
+index.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/206/trunk/docs/services/index.txt
+END
+examples.txt
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/139/trunk/docs/services/examples.txt
+END

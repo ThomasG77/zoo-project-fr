@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZOO.Geometry.LinearRing &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="ZOO.Geometry.LineString" href="zoo-geometry-linestring.html" />
+    <link rel="prev" title="ZOO.Geometry.Curve" href="zoo-geometry-curve.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo-geometry-linestring.html" title="ZOO.Geometry.LineString"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="zoo-geometry-curve.html" title="ZOO.Geometry.Curve"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >Documentation de l&#8217;API de ZOO</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zoo-geometry-linearring">
+<span id="api-zoo-geometry-linearring"></span><h1>ZOO.Geometry.LinearRing<a class="headerlink" href="#zoo-geometry-linearring" title="Lien permanent vers ce titre">¶</a></h1>
+<p>A Linear Ring is a special LineString which is closed.  It closes itself automatically
+on every addPoint/removePoint by adding a copy of the first point as the last point.</p>
+<p>Also, as it is the first in the line family to close itself, a getArea() function is
+defined to calculate the enclosed area of the linearRing</p>
+<p>Inherits from</p>
+<ul class="simple">
+<li><a class="reference internal" href="zoo-geometry-linestring.html#api-zoo-geometry-linestring"><em>ZOO.Geometry.LineString</em></a></li>
+</ul>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="zoo-geometry-multipoint.html#componenttypes"><em>componentTypes</em></a></td>
+<td>{Array(String)} An array of class names representing the types of components that the collection can include.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#id1"><em>ZOO.Geometry.LinearRing</em></a></td>
+<td>Linear rings are constructed with an array of points.</td>
+</tr>
+<tr><td><a class="reference internal" href="#addcomponent"><em>addComponent</em></a></td>
+<td>Adds a point to geometry components.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#move"><em>move</em></a></td>
+<td>Moves a geometry by the given displacement along positive x and y axes.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#rotate"><em>rotate</em></a></td>
+<td>Rotate a geometry around some origin</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#resize"><em>resize</em></a></td>
+<td>Resize a geometry relative to some origin.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-projection.html#transform"><em>transform</em></a></td>
+<td>Reproject the components geometry from source to dest.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#getcentroid"><em>getCentroid</em></a></td>
+<td>{ZOO.Geometry.Point} The centroid of the ring</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-polygon.html#getarea"><em>getArea</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><a class="reference internal" href="#getgeodesicarea"><em>getGeodesicArea</em></a></td>
+<td>Calculate the approximate area of the polygon were it projected onto the earth.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-polygon.html#containspoint"><em>containsPoint</em></a></td>
+<td>Test if a point is inside a linear ring.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<dl class="docutils" id="componenttypes">
+<dt>componentTypes</dt>
+<dd><tt class="docutils literal"><span class="pre">{Array(String)}</span></tt> An array of class names representing the types of components that the
+collection can include.  A null value means the component types are not restricted.</dd>
+</dl>
+<p><strong>Functions</strong></p>
+<dl class="docutils" id="id1">
+<dt>ZOO.Geometry.LinearRing</dt>
+<dd><p class="first">Linear rings are constructed with an array of points.  This array can represent a closed
+or open ring.  If the ring is open (the last point does not equal the first point),
+the constructor will close the ring.  If the ring is already closed (the last point does
+equal the first point), it will be left closed.</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">points</span></tt> {Array(<a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>ZOO.Geometry.Point</em></a>)} points</p>
+</dd>
+</dl>
+<dl class="docutils" id="addcomponent">
+<dt>addComponent</dt>
+<dd><div class="first highlight-python"><pre>addComponent: function(point,index)</pre>
+</div>
+<p>Adds a point to geometry components.  If the point is to be added to the end of the
+components array and it is the same as the last point already in that array, the
+duplicate point is not added.  This has the effect of closing the ring if it is not
+already closed, and doing the right thing if it is already closed.  This behavior can be
+overridden by calling the method with a non-null index as the second argument.</p>
+<p><em>Parameter</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">point</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a></div>
+<div class="line"><tt class="docutils literal"><span class="pre">index</span> <span class="pre">{Integer}</span></tt> Index into the array to insert the component</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> Was the Point successfully added?</p>
+</dd>
+</dl>
+<dl class="docutils" id="move">
+<dt>move</dt>
+<dd><div class="first highlight-python"><pre>move: function(x,y)</pre>
+</div>
+<p>Moves a geometry by the given displacement along positive x and y axes.  This
+modifies the position of the geometry and clears the cached bounds.</p>
+<p><em>Parameters</em></p>
+<div class="last line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">x</span> <span class="pre">{Float}</span></tt> Distance to move geometry in positive x direction.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">y</span> <span class="pre">{Float}</span></tt> Distance to move geometry in positive y direction.</div>
+</div>
+</dd>
+</dl>
+<dl class="docutils" id="rotate">
+<dt>rotate</dt>
+<dd><div class="first highlight-python"><pre>rotate: function(angle,origin)</pre>
+</div>
+<p>Rotate a geometry around some origin</p>
+<p><em>Parameters</em></p>
+<div class="last line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">angle</span> <span class="pre">{Float}</span></tt> Rotation angle in degrees (measured counterclockwise from the positive x-axis)</div>
+<div class="line"><tt class="docutils literal"><span class="pre">origin</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> Center point for the rotation</div>
+</div>
+</dd>
+</dl>
+<dl class="docutils" id="resize">
+<dt>resize</dt>
+<dd><div class="first highlight-python"><pre>resize: function(scale,origin,ratio)</pre>
+</div>
+<p>Resize a geometry relative to some origin.  Use this method to apply a uniform scaling to a geometry.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">scale</span> <span class="pre">{Float}</span></tt> Factor by which to scale the geometry.  A scale of 2 doubles the size of the geometry in each dimension (lines, for example, will be twice as long, and polygons will have four times the area).</div>
+<div class="line"><tt class="docutils literal"><span class="pre">origin</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> Point of origin for resizing</div>
+<div class="line"><tt class="docutils literal"><span class="pre">ratio</span> <span class="pre">{Float}</span></tt> Optional x:y ratio for resizing.  Default ratio is 1.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{ZOO.Geometry}</span></tt> The current geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="transform">
+<dt>transform</dt>
+<dd><div class="first highlight-python"><pre>transform: function(source,dest)</pre>
+</div>
+<p>Reproject the components geometry from source to dest.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">source</span></tt> <a class="reference internal" href="zoo-projection.html#api-zoo-projection"><em>{ZOO.Projection}</em></a></div>
+<div class="line"><tt class="docutils literal"><span class="pre">dest</span></tt> <a class="reference internal" href="zoo-projection.html#api-zoo-projection"><em>{ZOO.Projection}</em></a></div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a></p>
+</dd>
+</dl>
+<dl class="docutils" id="getcentroid">
+<dt>getCentroid</dt>
+<dd><div class="first highlight-python"><pre>getCentroid: function()</pre>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> The centroid of the ring</p>
+</dd>
+</dl>
+<dl class="docutils" id="getarea">
+<dt>getArea</dt>
+<dd><div class="first highlight-python"><pre>getArea: function()</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The area is positive if the ring is oriented CW, otherwise it will be negative.</p>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Float}</span></tt> The signed area for a ring.</p>
+</dd>
+</dl>
+<dl class="docutils" id="getgeodesicarea">
+<dt>getGeodesicArea</dt>
+<dd><div class="first highlight-python"><pre>getGeodesicArea: function(projection)</pre>
+</div>
+<p>Calculate the approximate area of the polygon were it projected onto the earth.  Note that
+this area will be positive if ring is oriented clockwise, otherwise it will be negative.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">projection</span></tt> <a class="reference internal" href="zoo-projection.html#api-zoo-projection"><em>{ZOO.Projection}</em></a> The spatial reference system for the geometry coordinates.  If not provided, Geographic/WGS84 is assumed.</p>
+<p><em>Reference</em></p>
+<p>Robert.  G. Chamberlain and William H.  Duquette, &#8220;Some Algorithms for Polygons on a Sphere&#8221;,
+JPL Publication 07-03, Jet Propulsion Laboratory, Pasadena, CA, June 2007 <a class="reference external" href="http://trs-new.jpl.nasa.gov/dspace/handle/2014/40409">http://trs-new.jpl.nasa.gov/dspace/handle/2014/40409</a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{float}</span></tt> The approximate signed geodesic area of the polygon in square meters.</p>
+</dd>
+</dl>
+<dl class="docutils" id="containspoint">
+<dt>containsPoint</dt>
+<dd><div class="first highlight-python"><pre>containsPoint: function(point)</pre>
+</div>
+<p>Test if a point is inside a linear ring.  For the case where a point is coincident with a
+linear ring edge, returns 1.  Otherwise, returns boolean.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">point</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean</span> <span class="pre">|</span> <span class="pre">Number}</span></tt> The point is inside the linear ring.  Returns 1 if the point is coincident with an edge.  Returns boolean otherwise.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table des matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Documentation du noyau (kernel) de ZOO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation de l&#8217;API de ZOO</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="classes.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Guide pour le développement de la documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

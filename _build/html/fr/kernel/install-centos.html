@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CentOS &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Installation" href="installation.html" />
+    <link rel="next" title="Debian / Ubuntu" href="install-debian.html" />
+    <link rel="prev" title="OpenSUSE" href="install-opensuse.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install-debian.html" title="Debian / Ubuntu"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="install-opensuse.html" title="OpenSUSE"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >Documentation du noyau (kernel) de ZOO</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="centos">
+<span id="kernel-installation-centos"></span><h1><a class="toc-backref" href="#table-des-matieres">CentOS</a><a class="headerlink" href="#centos" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="contents topic" id="table-des-matieres">
+<p class="topic-title first">Table des matières</p>
+<ul class="simple">
+<li><a class="reference internal" href="#centos" id="id3">CentOS</a><ul>
+<li><a class="reference internal" href="#requis" id="id4">Requis</a></li>
+<li><a class="reference internal" href="#compiler-le-zoo-kernel-et-le-zoo-services" id="id5">Compiler le ZOO-Kernel et le ZOO-Services</a></li>
+<li><a class="reference internal" href="#tester-votre-noyau-zoo-kernel" id="id6">Tester votre noyau ZOO-Kernel</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cette documentation a été créé grâce à Guillaume Sueur de Neogeo Technologies qui a pris le temps de tester
+l&#8217;installation du noyau ZOO-Kernel sur un environnement CentOS 5.5.</p>
+</div>
+<div class="section" id="requis">
+<h2><a class="toc-backref" href="#table-des-matieres">Requis</a><a class="headerlink" href="#requis" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Installer quelques outils standard pour être capable de faire fonctionner le ZOO-Kernel sur votre plate-forme :</p>
+<div class="highlight-python"><pre>yum install apache2
+yum install build-essentials
+yum install gcc-c++
+yum install zlib-devel
+yum install libxml2-devel
+yum install bison
+yum install openssl
+yum install python-devel
+yum install subversion</pre>
+</div>
+<p>Compiler et installer la libriaire FastCGI depuis les sources</p>
+<div class="highlight-python"><pre>wget http://www.fastcgi.com/dist/fcgi.tar.gz
+tar xzf fcgi-2.4.0.tar.gz
+./configure
+make
+make install
+echo /usr/local/lib &gt;&gt; /etc/ld.so.conf.d/local.conf
+ldconfig</pre>
+</div>
+<p>Compiler et installer les outils autoconf :</p>
+<div class="highlight-python"><pre>wget http://ftp.gnu.org/gnu/autoconf/autoconf-latest.tar.gz
+tar xzf autoconf-latest.tar.gz
+./configure --prefix=/usr
+make
+make install</pre>
+</div>
+<p>Compiler et installer l&#8217;outil flex :</p>
+<div class="highlight-python"><pre>wget http://downloads.sourceforge.net/project/flex/flex/flex-2.5.35/flex-2.5.35.tar.gz?r=http%3A%2F%2Fflex.sourceforge.net%2F&amp;ts=1292529005&amp;use_mirror=switch
+tar xzf flex-2.5.35.tar.gz
+cd flex-2.5.35
+./configure --prefix=/usr
+make
+make install</pre>
+</div>
+<p>Utiliser la version de curl fournie par la distribution CentOS va produire un ZOO-Kernel incapable de faire
+fonctionner un Service. En effet, quelques erreurs de segmentation ont lieu quand on cherche à lancer des requêtes <tt class="docutils literal"><span class="pre">Execute</span></tt>
+sur le ZOO-Kernel. Compiler le ZOO-Kernel en définissant le drapeau <tt class="docutils literal"><span class="pre">USE_GDB</span></tt> dans les <tt class="docutils literal"><span class="pre">CFLAGS</span></tt> de votre <tt class="docutils literal"><span class="pre">Makefile</span></tt>
+vous permettra de lancer ZOO-Kernel depuis gdb et d&#8217;avoir plus d&#8217;informations sur ce qui ne fonctionne pas avec votre ZOO-Kernel.
+En faisant cela, vous pourrez déterminer que le code sur la <a class="reference external" href="http://zoo-project.org/trac/browser/trunk/zoo-kernel/ulinet.c#L173">ligne 173</a>
+et la <a class="reference external" href="http://zoo-project.org/trac/browser/trunk/zoo-kernel/ulinet.c#L175">ligne 175</a> doit être commenté dans le fichier
+<tt class="docutils literal"><span class="pre">ulinet.c</span></tt> pour avoir un ZOO-Kernel qui fonctionne avec le curl disponible sur CentOS (curl version 7.15.5).
+Si vous n&#8217;appliqué la modification, vous obtiendrez une erreur depuis une session gdb indiquant une erreur de
+segmentation dans <tt class="docutils literal"><span class="pre">Curl_cookie_clearall</span></tt>.</p>
+<p>Vous pouvez de manière optionnelle compiler et installer curl depuis les sources :</p>
+<div class="highlight-python"><pre>wget http://curl.haxx.se/download/curl-7.21.3.tar.bz2
+tar xjf curl-7.21.3.tar.bz2
+cd curl-7.21.3
+./configure --prefix=/usr
+make
+make install</pre>
+</div>
+<p>Compiler et installer Python :</p>
+<div class="highlight-python"><pre>wget http://www.python.org/ftp/python/2.6.6/Python-2.6.6.tar.bz2
+tar xjf Python-2.6.6.tar.bz2
+cd Python-2.6.6
+./configure
+make
+make install</pre>
+</div>
+<p>Compiler puis installer votre propre bibliothèque GDAL :</p>
+<div class="highlight-python"><pre>wget http://download.osgeo.org/gdal/gdal-1.7.3.tar.gz
+tar xzf gdal-1.7.3.tar.gz
+cd gdal-1.7.3
+./configure  # add your options here
+make
+make install</pre>
+</div>
+<p>Installer le SDK Sun JAVA dans <tt class="docutils literal"><span class="pre">/usr/share</span></tt> ensuite utilisez la ligne de commande suivante pour s&#8217;assurer que <tt class="docutils literal"><span class="pre">libjvm.so</span></tt>
+sera trouvé au lancement quel que soit le contexte.</p>
+<div class="highlight-python"><pre>echo /usr/share/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/client/ &gt;&gt; /etc/ld.so.conf.d/jvm.conf
+ldconfig</pre>
+</div>
+</div>
+<div class="section" id="compiler-le-zoo-kernel-et-le-zoo-services">
+<h2><a class="toc-backref" href="#table-des-matieres">Compiler le ZOO-Kernel et le ZOO-Services</a><a class="headerlink" href="#compiler-le-zoo-kernel-et-le-zoo-services" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Compiler et installer le ZOO-Kernel et votre premier ZOO-Services.</p>
+<p>Dans un  premier temps, compiler la librairie cgic fournie dans les sources SVN:</p>
+<div class="highlight-python"><pre>svn co http://svn.zoo-project.org/svn/trunk zoo-project
+cd zoo-project/thirds/cgic206
+make</pre>
+</div>
+<p>Compiler et installer le ZOO-Kernel.</p>
+<div class="highlight-python"><pre>cd ../../zoo-kernel
+./configure --with-java=/usr/share/jdk1.6.0_23/ --with-python
+make zoo_loader.cgi
+cp main.cfg /var/www/cgi-bin/
+cp  zoo_loader.cgi /var/www/cgi-bin/</pre>
+</div>
+<p>Compiler et déployer votre premier ZOO-ServicesProviders (un simple HelloPy, ligne 1 et 2, et le premier OGR base-vect-ops
+ServiceProvider, ligne 3 à 6):</p>
+<div class="highlight-python"><pre>cp ../zoo-services/hello-py/cgi-env/*.zcfg /var/www/cgi-bin/
+cp ../zoo-services/hello-py/test_service.py /var/www/cgi-bin/
+cd ../ogr/base-vect-ops/
+make
+cp ./cgi-env/* /var/www/cgi-bin/
+vi /var/www/cgi-bin/main.cfg --&gt; set your own informations here</pre>
+</div>
+<p>Pour vous assurer que <a href="#id1"><span class="problematic" id="id2">``</span></a>libjvm.so``sera trouvé par apache, merci de le redémarrrer :</p>
+<div class="highlight-python"><pre>/etc/init.d/httpd restart</pre>
+</div>
+</div>
+<div class="section" id="tester-votre-noyau-zoo-kernel">
+<h2><a class="toc-backref" href="#table-des-matieres">Tester votre noyau ZOO-Kernel</a><a class="headerlink" href="#tester-votre-noyau-zoo-kernel" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tester votre ZOO-Kernel depuis la ligne de commande:</p>
+<div class="highlight-python"><pre>cd /var/www/cgi-bin
+./zoo_loader.cgi "request=Execute&amp;service=WPS&amp;version=1.0.0&amp;Identifier=HelloPy&amp;DataInputs=a=Djay"
+./zoo_loader.cgi "request=Execute&amp;service=WPS&amp;version=1.0.0&amp;Identifier=Buffer&amp;DataInputs=BufferDistance=1@datat</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table des matières</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation du noyau (kernel) de ZOO</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="installation.html">Installation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install-prerequisites.html">Prérequis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-unix.html">Unix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-opensuse.html">OpenSUSE</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-debian.html">Debian / Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-windows.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-mac.html">Mac OS X</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Documentation de l&#8217;API de ZOO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Guide pour le développement de la documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

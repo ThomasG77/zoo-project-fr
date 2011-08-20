@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZOO.Geometry.LineString &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="ZOO.Geometry.MultiLineString" href="zoo-geometry-multilinestring.html" />
+    <link rel="prev" title="ZOO.Geometry.LinearRing" href="zoo-geometry-linearring.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo-geometry-multilinestring.html" title="ZOO.Geometry.MultiLineString"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="zoo-geometry-linearring.html" title="ZOO.Geometry.LinearRing"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >Documentation de l&#8217;API de ZOO</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zoo-geometry-linestring">
+<span id="api-zoo-geometry-linestring"></span><h1>ZOO.Geometry.LineString<a class="headerlink" href="#zoo-geometry-linestring" title="Lien permanent vers ce titre">¶</a></h1>
+<p>A LineString is a Curve which, once two points have been added to it, can never be less than two points long.</p>
+<p>Inherits from</p>
+<ul class="simple">
+<li><a class="reference internal" href="zoo-geometry-curve.html#api-zoo-geometry-curve"><em>ZOO.Geometry.Curve</em></a></li>
+</ul>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#id1"><em>ZOO.Geometry.LineString</em></a></td>
+<td>Create a new LineString geometry</td>
+</tr>
+<tr><td><a class="reference internal" href="#removecomponent"><em>removeComponent</em></a></td>
+<td>Only allows removal of a point if there are three or more points in the linestring.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#intersects"><em>intersects</em></a></td>
+<td>Test for instersection between two geometries.</td>
+</tr>
+<tr><td><a class="reference internal" href="#getsortedsegments"><em>getSortedSegments</em></a></td>
+<td>{Array} An array of segment objects.</td>
+</tr>
+<tr><td><a class="reference internal" href="#splitwithsegment"><em>splitWithSegment</em></a></td>
+<td>Split this geometry with the given segment.</td>
+</tr>
+<tr><td><a class="reference internal" href="#split"><em>split</em></a></td>
+<td>Use this geometry (the source) to attempt to split a target geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#splitwith"><em>splitWith</em></a></td>
+<td>Split this geometry (the target) with the given geometry (the source).</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#getvertices"><em>getVertices</em></a></td>
+<td>Return a list of all points in this geometry.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils" id="id1">
+<dt>ZOO.Geometry.LineString</dt>
+<dd><p class="first">Create a new LineString geometry</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">points</span></tt> {Array(<a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>ZOO.Geometry.Point</em></a>)} An array of points used to generate the linestring</p>
+</dd>
+</dl>
+<dl class="docutils" id="removecomponent">
+<dt>removeComponent</dt>
+<dd><div class="first highlight-python"><pre>removeComponent: function(point)</pre>
+</div>
+<p>Only allows removal of a point if there are three or more points in the linestring. (otherwise
+the result would be just a single point)</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">point</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> The point to be removed</p>
+</dd>
+</dl>
+<dl class="docutils" id="intersects">
+<dt>intersects</dt>
+<dd><div class="first highlight-python"><pre>intersects: function(geometry)</pre>
+</div>
+<p>Test for instersection between two geometries.  This is a cheapo implementation of the
+Bently-Ottmann algorigithm.  It doesn&#8217;t really keep track of a sweep line data structure.
+It is closer to the brute force method, except that segments are sorted and potential intersections
+are only calculated when bounding boxes intersect.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a></p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> The input geometry intersects this geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="getsortedsegments">
+<dt>getSortedSegments</dt>
+<dd><div class="first highlight-python"><pre>getSortedSegments: function()</pre>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of segment objects.  Segment objects have properties x1, y1, x2, and y2.
+The start point is represented by x1 and y1.  The end point is represented by x2 and y2.
+Start and end are ordered so that x1 &lt; x2.</p>
+</dd>
+</dl>
+<dl class="docutils" id="splitwithsegment">
+<dt>splitWithSegment</dt>
+<dd><div class="first highlight-python"><pre>splitWithSegment: function(seg,options)</pre>
+</div>
+<p>Split this geometry with the given segment.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">seg</span> <span class="pre">{Object}</span></tt> An object with x1, y1, x2, and y2 properties referencing segment endpoint coordinates.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> Properties of this object will be used to determine how the split is conducted.</div>
+</div>
+<p><em>Valid options</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">edge</span> <span class="pre">{Boolean}</span></tt> Allow splitting when only edges intersect.  Default is true.  If false, a vertex on the source segment must be within the tolerance distance of the intersection to be considered a split.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">tolerance</span> <span class="pre">{Number}</span></tt> If a non-null value is provided, intersections within the tolerance distance of one of the source segment&#8217;s endpoints will be assumed to occur at the endpoint.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Object}</span></tt> An object with lines and points properties.  If the given segment intersects this linestring, the lines array will reference geometries that result from the split.  The points array will contain all intersection points.  Intersection points are sorted along the segment (in order from x1,y1 to x2,y2).</p>
+</dd>
+</dl>
+<dl class="docutils" id="split">
+<dt>split</dt>
+<dd><div class="first highlight-python"><pre>split: function(target,options)</pre>
+</div>
+<p>Use this geometry (the source) to attempt to split a target geometry.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">target</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a> The target geometry.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> Properties of this object will be used to determine how the split is conducted.</div>
+</div>
+<p><em>Valid options</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">mutual</span> <span class="pre">{Boolean}</span></tt> Split the source geometry in addition to the target geometry.  Default is false.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">edge</span> <span class="pre">{Boolean}</span></tt> Allow splitting when only edges intersect.  Default is true.  If false, a vertex on the source must be within the tolerance distance of the intersection to be considered a split.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">tolerance</span> <span class="pre">{Number}</span></tt> If a non-null value is provided, intersections within the tolerance distance of an existing vertex on the source will be assumed to occur at the vertex.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> A list of geometries (of this same type as the target) that result from splitting the target with the source geometry.  The source and target geometry will remain unmodified.  If no split results, null will be returned.  If mutual is true and a split results, return will be an array of two arrays - the first will be all geometries that result from splitting the source geometry and the second will be all geometries that result from splitting the target geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="splitwith">
+<dt>splitWith</dt>
+<dd><div class="first highlight-python"><pre>splitWith: function(geometry,options)</pre>
+</div>
+<p>Split this geometry (the target) with the given geometry (the source).</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a> A geometry used to split this geometry (the source).</div>
+<div class="line"><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> Properties of this object will be used to determine how the split is conducted.</div>
+</div>
+<p><em>Valid options</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">mutual</span> <span class="pre">{Boolean}</span></tt> Split the source geometry in addition to the target geometry.  Default is false.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">edge</span> <span class="pre">{Boolean}</span></tt> Allow splitting when only edges intersect.  Default is true.  If false, a vertex on the source must be within the tolerance distance of the intersection to be considered a split.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">tolerance</span> <span class="pre">{Number}</span></tt> If a non-null value is provided, intersections within the tolerance distance of an existing vertex on the source will be assumed to occur at the vertex.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> A list of geometries (of this same type as the target) that result from splitting the target with the source geometry.  The source and target geometry will remain unmodified.  If no split results, null will be returned.  If mutual is true and a split results, return will be an array of two arrays - the first will be all geometries that result from splitting the source geometry and the second will be all geometries that result from splitting the target geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="getvertices">
+<dt>getVertices</dt>
+<dd><div class="first highlight-python"><pre>getVertices: function(nodes)</pre>
+</div>
+<p>Return a list of all points in this geometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">nodes</span> <span class="pre">{Boolean}</span></tt> For lines, only return vertices that are endpoints.  If false, for lines, only vertices that are not endpoints will be returned.  If not provided, all vertices will be returned.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> A list of all vertices in the geometry.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table des matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Documentation du noyau (kernel) de ZOO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation de l&#8217;API de ZOO</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="classes.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Guide pour le développement de la documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

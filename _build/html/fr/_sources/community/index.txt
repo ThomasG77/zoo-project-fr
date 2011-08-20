@@ -1,0 +1,13 @@
+.. _community:
+
+ZOO Community
+=============
+
+Les sections suivantes vont vous aider à interagir avec la communauté ZOO.
+
+.. toctree::
+   :maxdepth: 2
+
+   mailinglist
+   irc
+

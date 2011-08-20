@@ -1,0 +1,72 @@
+﻿.. _kernel-installation-prereq:
+
+Prérequis
+=========
+
+.. contents:: Table of Contents
+    :depth: 2
+    :backlinks: top
+
+Obtenir les sources du noyau de ZOO 
+-----------------------------------
+
+.. _svn:
+
+Utiliser la commande suivante pour obtenir le code source du noyau ZOO en utilisant Subversion:
+
+::
+
+  svn checkout http://svn.zoo-project.org/svn/trunk zoo-project
+
+Pour les utilisateurs qui ont un compte développeur, utiliser ce qui suit:
+
+::
+
+  sed "s:\[tunnels\]:\[tunnels\]\nzoosvn = /usr/bin/ssh -p 1046:g" -i ~/.subversion/config
+  svn co svn+zoosvn://svn.zoo-project.org/var/svn/repos/trunk zoo-project
+
+La première ligne d'instruction ci-dessus définit un tunnel spécifique pour accéder au serveur svn via
+le protocole SSH. En effet, le serveur SVN de ZOO écoute sur le port 1046 (1024+22) plutôt que sur celui par défaut (22).
+
+Prérequis
+---------
+
+Les bibliothèques qui suivent sont requises sur votre système avant que vous ne puissiez installer le noyau de ZOO:
+
+- autoconf (  http://www.gnu.org/software/autoconf/ ) 
+- cgic (  http://www.boutell.com/cgic )
+- cURL (  http://curl.haxx.se )
+- FastCGI (  http://www.fastcgi.com )
+- Flex & Bison (  http://flex.sourceforge.net/  http://www.gnu.org/software/bison/ )
+- libxml2 (  http://xmlsoft.org )
+- OpenSSL (  http://www.openssl.org )
+- Python (  http://www.python.org )
+
+Les bibliothèques optionnelles sont:
+
+- PHP Embedded (optionnel) (  http://www.php.net )
+- Java SDK (optionnel) (  http://java.sun.com )
+- SpiderMonkey (optionnel) (  http://www.mozilla.org/js/spidermonkey/ ) 
+
+Compiler libcgic
+----------------
+
+La première étape est de compiler libcgic depuis le répertoire ``zoo-project/thirds``. Pour cela, merci d'utiliser
+la commande suivante:
+
+::
+
+  cd thirds/cgic206
+  make
+
+Assurer vous qu'un fichier ``libcgic.a`` est créé dans votre répertoire ``zoo-project/thirds/cgic206``. Si oui, alors 
+vous pouvez passer à l'étape suivante.
+
+Sous Windows, plutôt que d'utiliser la commande make, utiliser à la place:
+
+::
+
+  nmake /f makefile.vc. 
+  
+.. warning::
+   Si vous ne compilez libcgic en premier et essayez de compiler le noyau de ZOO, vous aurez une erreur du type *cannot find -lcgic*

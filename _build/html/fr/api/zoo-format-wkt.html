@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZOO.Format.WKT &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="ZOO.Format.WPS" href="zoo-format-wps.html" />
+    <link rel="prev" title="ZOO.Format.KML" href="zoo-format-kml.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo-format-wps.html" title="ZOO.Format.WPS"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="zoo-format-kml.html" title="ZOO.Format.KML"
+             accesskey="P">précédent</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >Documentation de l&#8217;API de ZOO</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zoo-format-wkt">
+<span id="api-zoo-format-wkt"></span><h1>ZOO.Format.WKT<a class="headerlink" href="#zoo-format-wkt" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Class for reading and writing Well-Known Text.</p>
+<p>Inherits from</p>
+<ul class="simple">
+<li><a class="reference internal" href="zoo-format.html#api-zoo-format"><em>ZOO.Format</em></a></li>
+</ul>
+<div class="section" id="functions-and-properties">
+<h2>Functions and Properties<a class="headerlink" href="#functions-and-properties" title="Lien permanent vers ce titre">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#id1"><em>ZOO.Format.WKT</em></a></td>
+<td>Create a new parser for WKT</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-format-wps.html#read"><em>read</em></a></td>
+<td>Deserialize a WKT string and return a vector feature or an array of vector features.</td>
+</tr>
+<tr><td><a class="reference internal" href="#write"><em>write</em></a></td>
+<td>Serialize a feature or array of features into a WKT string.</td>
+</tr>
+<tr><td><a class="reference internal" href="#extract"><em>extract</em></a></td>
+<td>Object with properties corresponding to the geometry types.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse"><em>parse</em></a></td>
+<td>Object with properties corresponding to the geometry types.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse-point"><em>parse.point</em></a></td>
+<td>Return point feature given a point WKT fragment.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse-multipoint"><em>parse.multipoint</em></a></td>
+<td>Return a multipoint feature given a multipoint WKT fragment.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse-linestring"><em>parse.linestring</em></a></td>
+<td>Return a linestring feature given a linestring WKT fragment.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse-multilinestring"><em>parse.multilinestring</em></a></td>
+<td>Return a multilinestring feature given a multilinestring WKT fragment.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse-polygon"><em>parse.polygon</em></a></td>
+<td>Return a polygon feature given a polygon WKT fragment.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse-multipolygon"><em>parse.multipolygon</em></a></td>
+<td>Return a multipolygon feature given a multipolygon WKT fragment.</td>
+</tr>
+<tr><td><a class="reference internal" href="#parse-geometrycollection"><em>parse.geometrycollection</em></a></td>
+<td>Return an array of features given a geometrycollection WKT fragment.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils" id="id1">
+<dt>ZOO.Format.WKT</dt>
+<dd><p class="first">Create a new parser for WKT</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">options</span> <span class="pre">{Object}</span></tt> An optional object whose properties will be set on this instance</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="#api-zoo-format-wkt"><em>{ZOO.Format.WKT}</em></a> A new WKT parser.</p>
+</dd>
+</dl>
+<dl class="docutils" id="read">
+<dt>read</dt>
+<dd><div class="first highlight-python"><pre>read: function(wkt)</pre>
+</div>
+<p>Deserialize a WKT string and return a vector feature or an array of vector features.
+Supports WKT for POINT, MULTIPOINT, LINESTRING, MULTILINESTRING, POLYGON, MULTIPOLYGON,
+and GEOMETRYCOLLECTION.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">wkt</span> <span class="pre">{String}</span></tt> A WKT string</p>
+<p><em>Returns</em></p>
+<p class="last">{&lt;ZOO.Feature.Vector&gt;|Array} A feature or array of features for GEOMETRYCOLLECTION WKT.</p>
+</dd>
+</dl>
+<dl class="docutils" id="write">
+<dt>write</dt>
+<dd><div class="first highlight-python"><pre>write: function(features)</pre>
+</div>
+<p>Serialize a feature or array of features into a WKT string.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">features</span> <span class="pre">{&lt;ZOO.Feature.Vector&gt;|Array}</span></tt> A feature or array of features</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{String}</span></tt> The WKT string representation of the input geometries</p>
+</dd>
+</dl>
+<dl class="docutils" id="extract">
+<dt>extract</dt>
+<dd>Object with properties corresponding to the geometry types. Property values are
+functions that do the actual data extraction.</dd>
+</dl>
+<dl class="docutils" id="parse">
+<dt>parse</dt>
+<dd>Object with properties corresponding to the geometry types. Property values are
+functions that do the actual parsing.</dd>
+</dl>
+<dl class="docutils" id="parse-point">
+<dt>parse.point</dt>
+<dd><p class="first">Return point feature given a point WKT fragment.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">str</span> <span class="pre">{String}</span></tt> A WKT fragment representing the point</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A point feature</p>
+</dd>
+</dl>
+<dl class="docutils" id="parse-multipoint">
+<dt>parse.multipoint</dt>
+<dd><p class="first">Return a multipoint feature given a multipoint WKT fragment.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">str</span> <span class="pre">{String}</span></tt> A WKT fragment representing the multipoint</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A multipoint feature</p>
+</dd>
+</dl>
+<dl class="docutils" id="parse-linestring">
+<dt>parse.linestring</dt>
+<dd><p class="first">Return a linestring feature given a linestring WKT fragment.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">str</span> <span class="pre">{String}</span></tt> A WKT fragment representing the linestring</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A linestring feature</p>
+</dd>
+</dl>
+<dl class="docutils" id="parse-multilinestring">
+<dt>parse.multilinestring</dt>
+<dd><p class="first">Return a multilinestring feature given a multilinestring WKT fragment.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">str</span> <span class="pre">{String}</span></tt> A WKT fragment representing the multilinestring</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A multilinestring feature</p>
+</dd>
+</dl>
+<dl class="docutils" id="parse-polygon">
+<dt>parse.polygon</dt>
+<dd><p class="first">Return a polygon feature given a polygon WKT fragment.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">str</span> <span class="pre">{String}</span></tt> A WKT fragment representing the polygon</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A polygon feature</p>
+</dd>
+</dl>
+<dl class="docutils" id="parse-multipolygon">
+<dt>parse.multipolygon</dt>
+<dd><p class="first">Return a multipolygon feature given a multipolygon WKT fragment.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">str</span> <span class="pre">{String}</span></tt> A WKT fragment representing the multipolygon</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-feature.html#api-zoo-feature"><em>{ZOO.Feature}</em></a> A multipolygon feature</p>
+</dd>
+</dl>
+<dl class="docutils" id="parse-geometrycollection">
+<dt>parse.geometrycollection</dt>
+<dd><p class="first">Return an array of features given a geometrycollection WKT fragment.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">str</span> <span class="pre">{String}</span></tt> A WKT fragment representing the geometrycollection</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> An array of ZOO.Feature</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table des matières</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Documentation du noyau (kernel) de ZOO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation de l&#8217;API de ZOO</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="classes.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-collection.html">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Guide pour le développement de la documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

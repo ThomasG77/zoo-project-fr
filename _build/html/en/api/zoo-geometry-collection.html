@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZOO.Geometry.Collection &mdash; ZOO Project 1.2 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZOO Project 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Classes" href="classes.html" />
+    <link rel="next" title="ZOO.Geometry.Curve" href="zoo-geometry-curve.html" />
+    <link rel="prev" title="ZOO.Geometry" href="zoo-geometry.html" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("ul.topnav li a").hover(function() {
+
+		//Following events are applied to the subnav itself (moving subnav up and down)
+		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+		$(this).parent().hover(function() {
+		}, function(){
+			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+		});
+
+		//Following events are applied to the trigger (Hover events for the trigger)
+		}).hover(function() {
+			$(this).addClass("subhover"); //On hover over, add class "subhover"
+		}, function(){	//On Hover Out
+			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+	});
+
+});
+</script>
+
+     
+
+  </head>
+  <body>
+<!-- Begin Header -->
+<div id="wrapper">
+  	<div id="myheader">
+    	<div class="hleft">
+    	  <h1 class="title">Open WPS Platform</h1>
+    	</div>
+    	<div class="hright">
+    	</div>
+  	</div>
+</div>
+<ul class="topnav">
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="#">ZOO Project</a>
+       <ul class="subnav">
+
+         <li><a href="/site/ZooWebSite/ZooProject/About">About</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Tribe">ZOO Tribe</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Events">Events</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Photos">Photos</a></li>
+         <li><a href="/site/ZooWebSite/ZooProject/Contact">Contacts</a></li>
+       </ul>
+
+  </li>
+  <li>
+    <a href="#">Components</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/ZooKernel">ZOO Kernel</a></li>
+      <li><a href="/site/ZooWebSite/ZooServices">ZOO Services</a></li>
+      <li><a href="/site/ZooWebsite/ZooApi">ZOO API</a></li>
+
+    </ul>
+  </li>
+  <li><a href="../dl/index.html">Download</a></li>
+  <li><a href="../doc/index.html">Docs</a></li>
+  <li><a href="#">Demos</a>
+    <ul class="subnav">
+      <li><a href="/site/ZooWebSite/Demo/SpatialTools">ZOO Spatial Tools</a></li>
+
+      <li><a href="/site/ZooWebSite/Demo/CGAL">ZOO CGAL Vor</a></li>
+      <li><a href="/site/ZooWebSite/Demo/WFS-T">ZOO Mapserver WFS-T</a></li>
+      <li><a href="/site/ZooWebSite/Demo/GdalProfile">ZOO Elevation Profile</a></li>
+      <li><a href="/site/ZooWebSite/Demo/FormTools">ZOO Form tools</a></li>
+    </ul>
+  </li>
+  <li><a href="/trac">Trac</a></li>
+</ul>
+<!-- End Header -->
+    
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="zoo-geometry-curve.html" title="ZOO.Geometry.Curve"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="zoo-geometry.html" title="ZOO.Geometry"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ZOO Docs</a> &raquo;</li>
+          <li><a href="index.html" >ZOO API Documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zoo-geometry-collection">
+<span id="api-zoo-geometry-collection"></span><h1>ZOO.Geometry.Collection<a class="headerlink" href="#zoo-geometry-collection" title="Permalink to this headline">¶</a></h1>
+<p>A Collection is exactly what it sounds like: A collection of different Geometries.
+These are stored in the local parameter <a class="reference internal" href="#components"><em>components</em></a> (which can
+be passed as a parameter to the constructor).</p>
+<p>As new geometries are added to the collection, they are NOT cloned.  When removing geometries,
+they need to be specified by reference (ie you have to pass in the exact geometry to be removed).</p>
+<p>The &lt;getArea&gt; and <a class="reference internal" href="zoo-geometry-curve.html#getlength"><em>getLength</em></a> functions here merely iterate through the components,
+summing their respective areas and lengths.</p>
+<p>Create a new instance with the <a class="reference internal" href="#id1"><em>ZOO.Geometry.Collection</em></a> constructor.</p>
+<p>Inherits from</p>
+<ul class="simple">
+<li><a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>ZOO.Geometry</em></a></li>
+</ul>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#components"><em>components</em></a></td>
+<td>{Array(ZOO.Geometry)} The component parts of this geometry</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-multipoint.html#componenttypes"><em>componentTypes</em></a></td>
+<td>{Array(String)} An array of class names representing the types of components that the collection can include.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">NAME</th>
+<th class="head">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#id1"><em>ZOO.Geometry.Collection</em></a></td>
+<td>Creates a Geometry Collection &#8211; a list of geoms.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-projection.html#destroy"><em>destroy</em></a></td>
+<td>Destroy this geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#clone"><em>clone</em></a></td>
+<td>Clone this geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="#getcomponentsstring"><em>getComponentsString</em></a></td>
+<td>Get a string representing the components for this collection.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#calculatebounds"><em>calculateBounds</em></a></td>
+<td>Recalculate the bounds by iterating through the components and calling extendBounds() on each item.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-linearring.html#addcomponent"><em>addComponent</em></a></td>
+<td>Add a new component (geometry) to the collection.</td>
+</tr>
+<tr><td><a class="reference internal" href="#removecomponents"><em>removeComponents</em></a></td>
+<td>Remove components from this geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-linestring.html#removecomponent"><em>removeComponent</em></a></td>
+<td>Remove a component from this geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-curve.html#getlength"><em>getLength</em></a></td>
+<td>Calculate the length of this geometry.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#getcentroid"><em>getCentroid</em></a></td>
+<td>{ZOO.Geometry.Point} The centroid of the collection.</td>
+</tr>
+<tr><td><a class="reference internal" href="#getgeodesiclength"><em>getGeodesicLength</em></a></td>
+<td>Calculate the approximate length of the geometry were it projected onto the earth.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#move"><em>move</em></a></td>
+<td>Moves a geometry by the given displacement along positive x and y axes.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#rotate"><em>rotate</em></a></td>
+<td>Rotate a geometry around some origin.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#resize"><em>resize</em></a></td>
+<td>Resize a geometry relative to some origin.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-projection.html#equals"><em>equals</em></a></td>
+<td>Determine whether another geometry is equivalent to this one.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-projection.html#transform"><em>transform</em></a></td>
+<td>Reproject the components geometry from source to dest.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#intersects"><em>intersects</em></a></td>
+<td>Determine if the input geometry intersects this one.</td>
+</tr>
+<tr><td><a class="reference internal" href="zoo-geometry-point.html#getvertices"><em>getVertices</em></a></td>
+<td>Return a list of all points in this geometry.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties</strong></p>
+<dl class="docutils" id="components">
+<dt>components</dt>
+<dd>{Array(<a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>ZOO.Geometry</em></a>)} The component parts of this geometry</dd>
+</dl>
+<dl class="docutils" id="componenttypes">
+<dt>componentTypes</dt>
+<dd><tt class="docutils literal"><span class="pre">{Array(String)}</span></tt> An array of class names representing the types of components that the collection can include.
+A null value means the component types are not restricted.</dd>
+</dl>
+<p><strong>Functions</strong></p>
+<dl class="docutils" id="id1">
+<dt>ZOO.Geometry.Collection</dt>
+<dd><p class="first">Creates a Geometry Collection &#8211; a list of geoms.</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">components</span></tt> {Array(<a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>ZOO.Geometry</em></a>)} Optional array of geometries</p>
+</dd>
+</dl>
+<dl class="docutils" id="destroy">
+<dt>destroy</dt>
+<dd><div class="first last highlight-python"><pre>destroy: function ()</pre>
+</div>
+</dd>
+</dl>
+<p>Destroy this geometry.</p>
+<dl class="docutils" id="clone">
+<dt>clone</dt>
+<dd><div class="first highlight-python"><pre>clone: function()</pre>
+</div>
+<p>Clone this geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="#api-zoo-geometry-collection"><em>{ZOO.Geometry.Collection}</em></a> An exact clone of this collection.</p>
+</dd>
+</dl>
+<dl class="docutils" id="getcomponentsstring">
+<dt>getComponentsString</dt>
+<dd><div class="first highlight-python"><pre>getComponentsString: function()</pre>
+</div>
+<p>Get a string representing the components for this collection.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{String}</span></tt> A string representation of the components of this geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="calculatebounds">
+<dt>calculateBounds</dt>
+<dd><div class="first highlight-python"><pre>calculateBounds: function()</pre>
+</div>
+<p class="last">Recalculate the bounds by iterating through the components and calling extendBounds() on each item.</p>
+</dd>
+</dl>
+<dl class="docutils" id="addcomponent">
+<dt>addComponent</dt>
+<dd><div class="first highlight-python"><pre>addComponent: function(component,index)</pre>
+</div>
+<p>Add a new component (geometry) to the collection.  If this.componentTypes is set, then the
+component class name must be in the componentTypes array.  The bounds cache is reset.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">component</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a> A geometry to add</div>
+<div class="line"><tt class="docutils literal"><span class="pre">index</span> <span class="pre">{int}</span></tt> Optional index into the array to insert the component</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> The component geometry was successfully added</p>
+</dd>
+</dl>
+<dl class="docutils" id="removecomponents">
+<dt>removeComponents</dt>
+<dd><div class="first highlight-python"><pre>removeComponents: function(components)</pre>
+</div>
+<p>Remove components from this geometry.</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">components</span></tt> {Array(<a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>ZOO.Geometry</em></a>)} The components to be removed</p>
+</dd>
+</dl>
+<dl class="docutils" id="removecomponent">
+<dt>removeComponent</dt>
+<dd><div class="first highlight-python"><pre>removeComponent: function(component)</pre>
+</div>
+<p>Remove a component from this geometry.</p>
+<p><em>Parameters</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">component</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a></p>
+</dd>
+</dl>
+<dl class="docutils" id="getlength">
+<dt>getLength</dt>
+<dd><div class="first highlight-python"><pre>getLength: function()</pre>
+</div>
+<p>Calculate the length of this geometry</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Float}</span></tt> The length of the geometry</p>
+</dd>
+</dl>
+<dl class="docutils" id="getcentroid">
+<dt>getCentroid</dt>
+<dd><div class="first highlight-python"><pre>getCentroid: function()</pre>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> The centroid of the collection</p>
+</dd>
+</dl>
+<dl class="docutils" id="getgeodesiclength">
+<dt>getGeodesicLength</dt>
+<dd><div class="first highlight-python"><pre>getGeodesicLength: function(projection)</pre>
+</div>
+<p>Calculate the approximate length of the geometry were it projected onto the earth.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">projection</span></tt> <a class="reference internal" href="zoo-projection.html#api-zoo-projection"><em>{ZOO.Projection}</em></a> The spatial
+reference system for the geometry coordinates.  If not provided, Geographic/WGS84 is assumed.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Float}</span></tt> The appoximate geodesic length of the geometry in meters.</p>
+</dd>
+</dl>
+<dl class="docutils" id="move">
+<dt>move</dt>
+<dd><div class="first highlight-python"><pre>move: function(x,y)</pre>
+</div>
+<p>Moves a geometry by the given displacement along positive x and y axes.  This modifies the
+position of the geometry and clears the cached bounds.</p>
+<p><em>Parameters</em></p>
+<div class="last line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">x</span> <span class="pre">{Float}</span></tt> Distance to move geometry in positive x direction.</div>
+<div class="line"><tt class="docutils literal"><span class="pre">y</span> <span class="pre">{Float}</span></tt> Distance to move geometry in positive y direction.</div>
+</div>
+</dd>
+</dl>
+<dl class="docutils" id="rotate">
+<dt>rotate</dt>
+<dd><div class="first highlight-python"><pre>rotate: function(angle,origin)</pre>
+</div>
+<p>Rotate a geometry around some origin</p>
+<p><em>Parameters</em></p>
+<div class="last line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">angle</span> <span class="pre">{Float}</span></tt> Rotation angle in degrees (measured counterclockwise from the positive x-axis)</div>
+<div class="line"><tt class="docutils literal"><span class="pre">origin</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> Center point for the rotation</div>
+</div>
+</dd>
+</dl>
+<dl class="docutils" id="resize">
+<dt>resize</dt>
+<dd><div class="first highlight-python"><pre>resize: function(scale,origin,ratio)</pre>
+</div>
+<p>Resize a geometry relative to some origin.  Use this method to apply a uniform scaling to a geometry.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">scale</span> <span class="pre">{Float}</span></tt> Factor by which to scale the geometry.  A scale of 2 doubles the size of the geometry in each dimension (lines, for example, will be twice as long, and polygons will have four times the area).</div>
+<div class="line"><tt class="docutils literal"><span class="pre">origin</span></tt> <a class="reference internal" href="zoo-geometry-point.html#api-zoo-geometry-point"><em>{ZOO.Geometry.Point}</em></a> Point of origin for resizing</div>
+<div class="line"><tt class="docutils literal"><span class="pre">ratio</span> <span class="pre">{Float}</span></tt> Optional x:y ratio for resizing.  Default ratio is 1.</div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a>  The current geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="equals">
+<dt>equals</dt>
+<dd><div class="first highlight-python"><pre>equals: function(geometry)</pre>
+</div>
+<p>Determine whether another geometry is equivalent to this one.  Geometries are considered equivalent if
+all components have the same coordinates.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geom</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a> The geometry to test.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> The supplied geometry is equivalent to this geometry.</p>
+</dd>
+</dl>
+<dl class="docutils" id="transform">
+<dt>transform</dt>
+<dd><div class="first highlight-python"><pre>transform: function(source,dest)</pre>
+</div>
+<p>Reproject the components geometry from source to dest.</p>
+<p><em>Parameters</em></p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">source</span></tt> <a class="reference internal" href="zoo-projection.html#api-zoo-projection"><em>{ZOO.Projection}</em></a></div>
+<div class="line"><tt class="docutils literal"><span class="pre">dest</span></tt> <a class="reference internal" href="zoo-projection.html#api-zoo-projection"><em>{ZOO.Projection}</em></a></div>
+</div>
+<p><em>Returns</em></p>
+<p class="last"><a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a></p>
+</dd>
+</dl>
+<dl class="docutils" id="intersects">
+<dt>intersects</dt>
+<dd><div class="first highlight-python"><pre>intersects: function(geometry)</pre>
+</div>
+<p>Determine if the input geometry intersects this one.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">geometry</span></tt> <a class="reference internal" href="zoo-geometry.html#api-zoo-geometry"><em>{ZOO.Geometry}</em></a> Any type of geometry.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Boolean}</span></tt> The input geometry intersects this one.</p>
+</dd>
+</dl>
+<dl class="docutils" id="getvertices">
+<dt>getVertices</dt>
+<dd><div class="first highlight-python"><pre>getVertices: function(nodes)</pre>
+</div>
+<p>Return a list of all points in this geometry.</p>
+<p><em>Parameters</em></p>
+<p><tt class="docutils literal"><span class="pre">nodes</span> <span class="pre">{Boolean}</span></tt> For lines, only return vertices that are endpoints.  If false, for lines,
+only vertices that are not endpoints will be returned.  If not provided, all vertices will be returned.</p>
+<p><em>Returns</em></p>
+<p class="last"><tt class="docutils literal"><span class="pre">{Array}</span></tt> A list of all vertices in the geometry.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">ZOO Kernel Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">ZOO Services Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ZOO API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="description.html">Description</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="classes.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="zoo.html">ZOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-bounds.html">ZOO.Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-feature.html">ZOO.Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format.html">ZOO.Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-geojson.html">ZOO.Format.GeoJSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-gml.html">ZOO.Format.GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-json.html">ZOO.Format.JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-kml.html">ZOO.Format.KML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wkt.html">ZOO.Format.WKT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-format-wps.html">ZOO.Format.WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry.html">ZOO.Geometry</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">ZOO.Geometry.Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-curve.html">ZOO.Geometry.Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linearring.html">ZOO.Geometry.LinearRing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-linestring.html">ZOO.Geometry.LineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multilinestring.html">ZOO.Geometry.MultiLineString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipoint.html">ZOO.Geometry.MultiPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-multipolygon.html">ZOO.Geometry.MultiPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-point.html">ZOO.Geometry.Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-polygon.html">ZOO.Geometry.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-geometry-surface.html">ZOO.Geometry.Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-process.html">ZOO.Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-projection.html">ZOO.Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-request.html">ZOO.Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zoo-string.html">ZOO.String</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../community/index.html">ZOO Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation Development Guide</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<!-- Begin Footer -->
+<div id="footer">
+<div>
+
+<div>
+  <div class="menuContainer">
+    <div class="menuItemList">
+      <a href="../index.html" shape="rect">Home</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">ZOO Project</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/About" shape="rect">About</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Tribe" shape="rect">ZOO Tribe</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Events" shape="rect">Events</a>
+      <br/>
+
+      <a href="/site/ZooWebSite/ZooProject/Photos" shape="rect">Photos</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooProject/Contact" shape="rect">Contacts</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Components</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/ZooKernel" shape="rect">ZOO Kernel</a>
+      <br/>
+      <a href="/site/ZooWebSite/ZooServices" shape="rect">ZOO Services</a>
+      <br/>
+      <a href="/site/ZooWebsite/ZooApi" shape="rect">ZOO API</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="../dl/index.html" shape="rect">Download</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="../doc/index.html" shape="rect">Docs</a>
+      <br/>
+
+    </div>
+    <div class="menuItemList">
+      <a href="#" shape="rect">Demos</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/SpatialTools" shape="rect">ZOO Spatial Tools</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/WFS-T" shape="rect">ZOO Mapserver WFS-T</a>
+
+      <br/>
+      <a href="/site/ZooWebSite/Demo/GdalProfile" shape="rect">ZOO Elevation Profile</a>
+      <br/>
+      <a href="/site/ZooWebSite/Demo/FormTools" shape="rect">ZOO Form tools</a>
+      <br/>
+    </div>
+    <div class="menuItemList">
+      <a href="/trac" shape="rect">Trac</a>
+
+      <br/>
+    </div>
+  </div>
+  <br style="clear:both"/>
+</div>
+</div>
+<p>
+&copy; Copyright 2011 - <a class="ext-link" href="http://www.zoo-project.org" shape="rect"><span class="icon"> </span>ZOO Project</a> - All Rights Reserved. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</p>
+</div>
+<!-- End Footer -->
+    
+    <div class="footer">
+    </div>
+
+  </body>
+</html>

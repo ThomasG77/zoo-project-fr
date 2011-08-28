@@ -3,110 +3,110 @@
 Debian / Ubuntu
 ===============
 
-.. contents:: Table of Contents
+.. contents:: Table des matières
     :depth: 2
     :backlinks: top
 
 .. note::
-   An Ubuntu 10.4 with ZOO virtual image is available at http://www.zoo-project.org/Ubuntu10.4_ZOO.zip
+   Une image virtuelle de Ubuntu 10.04 avec ZOO est disponible sur http://www.zoo-project.org/Ubuntu10.4_ZOO.zip
    (root: ZOO.test)
 
-The following instructions were tested on Debian Squeeze, Ubuntu 10.04 and Ubuntu 10.10
+Les instructions suivantes ont été testées sur Debian Squeeze, Ubuntu 10.04 et Ubuntu 10.10
 
-Installation Workflow
----------------------
+Processus d'installation
+------------------------
 
-- install some dependencies
+- installer quelques dépendances
 
 ::
 
   sudo apt-get install flex bison libfcgi-dev libxml2 libxml2-dev curl openssl autoconf checkinstall
 
-- download ZOO  source
+- télécharger les sources de ZOO
 
 ::
 
   svn checkout http://svn.zoo-project.org/svn/trunk zoo-project
 
-- install cgic from packages
+- installer cgic depuis les paquets
 
 ::
 
   cd zoo-project/thirds/cgic206/
 
-- change the path of installation
+- changer le chemin d'installation
 
 ::
 
-  nano Makefile 
+  nano Makefile
     - LIBS=-L./ -lcgic ../fcgi-2.4.0/libfcgi/.libs/libfcgi.a --> LIBS=/path/to/libfcgi.a
     - cp libcgic.a  ../../dist/lib --> cp libcgic.a /usr/lib
     - cp cgic.h  ../../dist//include --> cp cgic.h  /usr/include
     - @echo libcgic.a is in  ../../dist/lib and cgic.h is in  ../../dist//include. --> @echo libcgic.a is in  /usr/lib and cgic.h is in /usr/include.
 
-- compile
+- compiler
 
 ::
 
   make
 
-- install
+- installer
 
 ::
 
   sudo make install
 
-- go to kernel path
+- se rendre dans le répertoire du kernel
 
 ::
 
   cd ../../zoo-kernel/
 
-- create configure file
+- créer les fichiers de configuration
 
 ::
 
   autoconf
 
-- run configure
+- lancer "configure"
 
 .. note::
-   In Ubuntu 10.04 libmozjs-dev does not exist, so to use JS you can compile `SpiderMonkey <https://developer.mozilla.org/en/SpiderMonkey>`__ or use the xulrunner-dev package 
-   which includes SpiderMonkey.  
-   For PHP, you must make sure to compile PHP with `--enable-embed <http://www.zoo-project.org/trac/wiki/ZooKernel/Embed/PHP#ConfigureandInstallPHPEmbedlibrary>`__.
+   Dans Ubuntu 10.04, le paquet libmozjs-dev n'existe pas, donc pour utiliser le JS vous pouvez compiler `SpiderMonkey <https://developer.mozilla.org/en/SpiderMonkey>`__ ou utiliser le paquet xulrunner-dev
+   qui inclus SpiderMonkey.
+   Pour PHP, vous devez vous assurer de compiler PHP avec `--enable-embed <http://www.zoo-project.org/trac/wiki/ZooKernel/Embed/PHP#ConfigureandInstallPHPEmbedlibrary>`__.
 
 ::
 
   ./configure --with-java=/path/to/java
-  
-  to JavaScript with XulRunner SpiderMonkey you have to edit configure file.
+
+  pour JavaScript avec le XulRunner de SpiderMonkey vous devez éditer le fichier de configuration.
     - JS_CPPFLAGS="-I$JSHOME/include/js" --> JS_CPPFLAGS="-I$JSHOME/include"
     - JS_LDFLAGS="-L$JSHOME/lib -ljs -lm" --> JS_LDFLAGS="-L$JSHOME/lib -lmozjs -lm"
     - JS_LIB="js" --> JS_LIB="mozjs"
-    
+
   ./configure --with-js=/usr/lib/xulrunner-devel.1.9.2.n
 
-- compile
+- compiler
 
 ::
 
   make zoo_loader.cgi
 
-- copy necessary files into your cgi-bin
+- copier les fichiers nécessaires dans votre répertoire cgi-bin
 
 ::
 
   sudo cp main.cfg /usr/lib/cgi-bin
   sudo cp zoo_loader.cgi /usr/lib/cgi-bin
 
-- Install ZOO ServiceProvider
+- installer le ServiceProvider de ZOO
 
 ::
 
   sudo cp ../zoo-services/hello-py/cgi-env/*.zcfg /usr/lib/cgi-bin
   sudo cp ../zoo-services/hello-py/*.py /usr/lib/cgi-bin/
 
-- change some paths in the main.cfg
+- changer quelques chemins dans le fichier main.cfg
 
 ::
 
@@ -115,16 +115,17 @@ Installation Workflow
     - providerSite = http://127.0.0.1
 
 
-- try the installation
+- essayer l'installation
 
   - http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=&Service=WPS&Request=GetCapabilities&Version=1.0.0
   - http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=&Service=WPS&Request=DescribeProcess&Version=1.0.0&Identifier=HelloPy
   - http://127.0.0.1/cgi-bin/zoo_loader.cgi?ServiceProvider=&metapath=&Service=WPS&Request=Execute&Version=1.0.0&Identifier=HelloPy&DataInputs=a=myname
 
 .. note::
-   If you have some problem in the execute request, add the following to ``main.cfg``: 
+   Si vous rencontrez quelques problèmes dans la requête "execute", ajouter les instructions suivantes dans ``main.cfg``:
 
    ::
-   
+
      [env]
-     PYTHONPATH=<YOUR_PYTHONPATH>
+     PYTHONPATH=<VOTRE_CHEMIN_PYTHON>
+

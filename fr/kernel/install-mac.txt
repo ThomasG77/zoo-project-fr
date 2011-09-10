@@ -95,34 +95,34 @@ Compiler depuis les sources
         pas ce conseil, vous risquez de recevoir des erreurs de compilation du type ``symbol(s) not found for architecture ppc`` ou ``file was built for
         unsupported file format which is not the architecture being linked (ppc)``.
 
-Deploy the OGR Services Provider
---------------------------------
+Déployer les fournisseurs de service OGR
+----------------------------------------
 
-Requirements
-************
+Prérequis
+*********
 
-Before your try to use any service, please set the correct path in the ``main.cfg`` for tmpPath and tmpUrl.
+Avant d'essayer d'utiliser un service, merci de définir le chemin correct dans ``main.cfg`` pour les variables tmpPath et tmpUrl.
 
-You can use the following setup :
+Vous pouvez utiliser le paramétrage suivant :
 
 ::
 
   tmpPath = /Library/WebServer/Documents/tmp
   tmpUrl = ../../tmp
 
-Obviously you'll then need to create this directory, using the following command :
+Evidemment, vous devrez créer ce répertoire en utilisant la commande suivante :
 
 ::
 
   mkdir /Library/WebServer/Documents/tmp
 
-C Version
-*********
+Version en C
+************
 
-To compile the base-vect-ops ServicesProvider you'll need to edit the Makefile in *zoo/zoo-services/ogr/base-vect-ops/*
-directory. Add "-I/Library//Frameworks/GEOS.framework/Versions/3/Headers/" to the CFLAGS value on the first line.
-To compile, add GDAL framework to the PATH environmenet variable, to ensure that gdal-config tool will be found,
-run make and then copy cgi-env files in the /Library/WebServer/CGI-Executables directory.
+Pour compiler le fournisseur de services base-vect-ops vous allez devoir éditer le Makefile dans le répertoire
+*zoo/zoo-services/ogr/base-vect-ops/*. Ajoutez "-I/Library//Frameworks/GEOS.framework/Versions/3/Headers/" à la valeur CFLAGS sur la première ligne.
+Pour compiler, ajoutez le framework GDAL à votre variable d'environnement PATH pour vous assurer que l'outil gdal-config sera trouvé,
+lancez make et ensuite copiez les fichiers de cgi-env dans votre répertoire /Library/WebServer/CGI-Executables.
 
 ::
 
@@ -131,56 +131,56 @@ run make and then copy cgi-env files in the /Library/WebServer/CGI-Executables d
   make
   cp cgi-env/* /Library/WebServer/CGI-Executables
 
-You can test using this `url <http://localhost/cgi-bin/zoo_loader.cgi?request=Execute&service=WPS&version=1.0.0&Identifier=Buffer&DataInputs=BufferDistance=1@datatype=interger;InputPolygon=Reference@xlink:href=http%3A%2F%2Fwww.zoo-project.org%3A8082%2Fgeoserver%2Fows%3FSERVICE%3DWFS%26REQUEST%3DGetFeature%26VERSION%3D1.0.0%26typename%3Dtopp%3Astates%26SRS%3DEPSG%3A4326%26FeatureID%3Dstates.15>`__
-if everything is ok with your setup.
+Vous pouvez tester en utilisant cette `url <http://localhost/cgi-bin/zoo_loader.cgi?request=Execute&service=WPS&version=1.0.0&Identifier=Buffer&DataInputs=BufferDistance=1@datatype=interger;InputPolygon=Reference@xlink:href=http%3A%2F%2Fwww.zoo-project.org%3A8082%2Fgeoserver%2Fows%3FSERVICE%3DWFS%26REQUEST%3DGetFeature%26VERSION%3D1.0.0%26typename%3Dtopp%3Astates%26SRS%3DEPSG%3A4326%26FeatureID%3Dstates.15>`__
+si tout est ok avec votre paramétrage.
 
-Python Version
-**************
+Version en Python
+*****************
 
-**Requirements**
+**Prérequis**
 
-First of all run python from a Terminal.app and try the following import from the python interpreter :
+Avant tout, lancer python depuis votre terminal et essayer l'importation suivante depuis votre interpréteur python :
 
 ::
 
   import osgeo.ogr
   import libxml2
 
-If you get an issue when importing the libxml2 module from your python interpreter then that means you
-need to install the Python support for the libxml2 library which is already installed on your Mac OS X environment.
-To accomplish this, you have first to determine what version of libxml2 is installed on your platform, using the following command:
+Si vous avez une erreur quand vous importez le module libxml2 depuis votre interpréteur python alors cela signifie que vous
+allez devoir installer le support de Python  pour la librairie libxml2 qui est déjà installée dans votre environnement Mac OS X.
+Pour réaliser ceci, vous devez d'abord déterminer quelle version de libxml2 est installée sur votre plate-forme, en utilisant la commande suivante:
 
 xml2-config --version
 
-Download the source corresponding to your version (i.e. on 10.6.6 you get 2.7.3) from the libxml2
-`download page <ftp://xmlsoft.org/libxml2/>`__ into your ``src`` directory then uncompress it.
+Télécharger les sources correspondantes à votre version (par exemple en 10.6.6 vous avez la 2.7.3) à partir de la
+`page de téléchargement <ftp://xmlsoft.org/libxml2/>`__ de libxml2 dans votre répertoire ``src`` et les décompresser.
 
-Use the following command to install the python support :
+Utiliser la commande suivante pour installer le support de Python :
 
 ::
 
   cd src/libxml2-2.7.3/python/
   python setup.py install
 
-**Deploy OGR Python Services Provider**
+**Déployer les fournisseurs de service OGR basés sur Python**
 
-- Now copy the ``zoo-services/ogt/base-vect-ops/cgi-env`` files into ``/Library/WebServer/CGI-Executables``.
+- Maintenant copier les fichiers ``zoo-services/ogt/base-vect-ops/cgi-env`` dans ``/Library/WebServer/CGI-Executables``.
 
-You can test using this `url <http://localhost/cgi-bin/zoo_loader.cgi?request=Execute&service=WPS&version=1.0.0&Identifier=BufferPy&DataInputs=BufferDistance=1@datatype=interger;InputPolygon=Reference@xlink:href=http%3A%2F%2Fwww.zoo-project.org%3A8082%2Fgeoserver%2Fows%3FSERVICE%3DWFS%26REQUEST%3DGetFeature%26VERSION%3D1.0.0%26typename%3Dtopp%3Astates%26SRS%3DEPSG%3A4326%26FeatureID%3Dstates.15>`__
-if everything is ok with your setup.
+Vous pouvez tester en utilisant cette `url <http://localhost/cgi-bin/zoo_loader.cgi?request=Execute&service=WPS&version=1.0.0&Identifier=BufferPy&DataInputs=BufferDistance=1@datatype=interger;InputPolygon=Reference@xlink:href=http%3A%2F%2Fwww.zoo-project.org%3A8082%2Fgeoserver%2Fows%3FSERVICE%3DWFS%26REQUEST%3DGetFeature%26VERSION%3D1.0.0%26typename%3Dtopp%3Astates%26SRS%3DEPSG%3A4326%26FeatureID%3Dstates.15>`__
+si tout est ok avec votre paramétrage.
 
-Test using Local Demo Page
---------------------------
+Tester en utilisant la page de démo en local
+--------------------------------------------
 
-- Download the `OpenLayers <http://openlayers.org>`__ library and uncompress it in your personal Sites directory
-  (located in your home directory).
+- Télécharger la librairie `OpenLayers <http://openlayers.org>`__ et la décompresser dans votre répertoire personnel pour les Sites
+  (situé dans votre répertoire utilisateur).
 
-- Rename the OpenLayers directory as openlayers.
+- Renommer le répertoire OpenLayers en openlayers.
 
-- Download this `zip archive <http://www.zoo-project.org/trac/raw-attachment/wiki/ZooDocumentation/ZOOKernel/MacOSX_installation/zoo-demo.zip>`__
-  and then uncompress it in your personal Sites directory.
+- Télécharger cette `archive zip <http://www.zoo-project.org/trac/raw-attachment/wiki/ZooDocumentation/ZOOKernel/MacOSX_installation/zoo-demo.zip>`__
+  et ensuite la décompresser dans votre répertoire Sites personnel.
 
-- Load your local demo pages using urls similar to the following (replacing MyUserName by your MacOS user name) :
+- Charger vos pages de démonstration en local en utilisant les urls similaires à celles suivantes (en remplaçant MyUserName par votre non d'utilisateur MacOS) :
 
     *  http://localhost/~MyUserName/zoo-demo/spatialtools.html
     *  http://localhost/~MyUserName/zoo-demo/spatialtools-py.html

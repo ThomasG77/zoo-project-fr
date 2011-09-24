@@ -3,28 +3,29 @@
 Introduction
 ============
 
-ZOO Services are example Web services which work with the ZOO :ref:`Kernel <kernel-introduction>`. 
-They are based on various existing Open Source libraries and tend to provide simple Web processing 
-functions such as GIS format conversion, GIS file reprojection, basic spatial operations, 
-basic raster operations...
+Les services ZOO sont des exemples de services web qui fonctionnent avec le :ref:`noyau<kernel-introduction>` ZOO.
+Ils sont basés sur plusieurs librairies Open Source et tendent à fournir des fonctions simples de traitement en
+ligne comme la conversion de format SIG, la reprojection de fichiers SIG, des opérations spatiales basiques,
+des opérations raster basiques...
 
-The available ZOO Services are under development and come without any warranty. They are based 
-on existing code and prove that the :ref:`ZOO Kernel <kernel-introduction>` works with many different 
-codes and languages (please have a look to the ZOO demos!). The ZOO Project team wants to encourage 
-people to use the ZOO Services as a functional basis for Web processing, but above all to provide a 
-source of inspiration to the community for creating new ZOO Services.
+Les services ZOO sont encore en développement et sont fournies sans garantie. Ils sont basés sur
+du code existant et prouvent que le :ref:`noyau ZOO<kernel-introduction>` fonctionne avec différents
+codes et langages (merci de jeter un oeil aux démos ZOO!). Les membres du projet ZOO veulent encourager
+les gens à utiliser les services ZOO comme une base fonctionnelle pour des traitements web, mais surtout
+souhaitent fournir une source d'inspiration pour la communauté pour créer de nouveau services ZOO.
 
-What is a ZOO Service?
-----------------------
+Qu'est qu'un service ZOO?
+-------------------------
 
-A ZOO Service is a couple composed of:
+Un service ZOO est un couple compsé de:
 
-- The code you want to turn into a standardized Web service
-- A configuration file (.zcfg) which describes this Web service 
+- Un code que vous voulez transformé en un service web standardisé
+- Un fichier de configuration (.zcfg) qui décrit ce service web
 
-Learn more on configuring ZOO services by reading the :ref:`.zcfg Reference <services-zcfg>`.
+Apprenez en plus sur la manière deconfigurer des services ZOO en lisant :ref:`la référence .zcfg <services-zcfg>`.
 
-Example ZOO Services
---------------------
+Exemple de services ZOO
+-----------------------
 
-See the ZOO Services :ref:`examples page <services-examples>`.
+Voir :ref:`les pages exemples <services-examples>` des services ZOO.
+

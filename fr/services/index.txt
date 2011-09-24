@@ -1,14 +1,15 @@
 .. _services:
 
-ZOO Services Documentation
-==========================
+Documentation des services ZOO
+==============================
 
-The following sections will assist you with ZOO Services:
+Les sections suivantes vont vous assister sur les services ZOO:
 
 .. toctree::
    :maxdepth: 2
-   
+
    introduction
    zcfg-reference
    howtos
    examples
+
